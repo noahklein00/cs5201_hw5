@@ -1,7 +1,7 @@
 // Programmer : Noah Klein
 // Instructor : Price
 // Class      : CS5201 Spring 2020
-// Assignment : Homework 4 - Implicit Solvers, p-norms, and 
+// Assignment : Homework 4 - Implicit Solvers, p-norms, and
 //					Insulin/Glucose Dynamics
 // Filename   : nVect.hpp
 
@@ -25,7 +25,7 @@ nVect<T>::nVect()
 {
 	m_arr = new T[10]; //default size of 10
 	m_size = 0;
-	m_available = 10; 
+	m_available = 10;
 }
 
 template <typename T>
@@ -52,12 +52,12 @@ nVect<T>::nVect(const int size)
 template <typename T>
 nVect<T>::nVect(const std::initializer_list<T> & list)
 {
-	m_available = list.size(); 
+	m_available = list.size();
 	m_size = 0;
 	m_arr = new T[m_available];
 	for(auto itr = list.begin(); itr != list.end(); itr++)
 	{
-		this -> push_back(*itr);	
+		this -> push_back(*itr);
 	}
 }
 
@@ -133,6 +133,10 @@ void nVect<T>::push_back(const T & item)
 			delete[] m_arr;
 			m_arr = new T[1];
 		}
+		else
+		{
+			m_arr = new T[1];
+		}
 		m_arr[0] = item;
 		m_size = 1;
 		m_available = 1;
@@ -149,7 +153,7 @@ void nVect<T>::push_back(const T & item)
 		m_available = m_available * 2;
 		m_arr[m_size] = item;
 		m_size++;
-	}	
+	}
 	else
 	{
 		m_arr[m_size] = item;
@@ -163,7 +167,7 @@ void nVect<T>::resize(const int new_size)
 {
 	T* temp_arr;
 	if(new_size < 0) throw(std::domain_error(std::to_string(new_size)));
-	
+
 	if(new_size > m_available)
 	{
 		temp_arr = new T[new_size];
@@ -189,13 +193,13 @@ void nVect<T>::resize(const int new_size)
 	}
 	return;
 }
-		
-template <typename T>		
+
+template <typename T>
 void nVect<T>::resize(const int new_size, const T& filler)
 {
 	T* temp_arr;
 	if(new_size < 0) throw(std::domain_error(std::to_string(new_size)));
-	
+
 	if(new_size > m_available)
 	{
 		temp_arr = new T[new_size];
@@ -242,7 +246,7 @@ void nVect<T>::clear()
 template <typename T>
 T& nVect<T>::operator[](const int index)
 {
-	if(index < 0 || index >= m_size) 
+	if(index < 0 || index >= m_size)
 		throw(std::domain_error(std::to_string(index)));
 	return m_arr[index];
 }
@@ -256,7 +260,7 @@ nVect<T> nVect<T>::operator-(const nVect<T> & rhs)
 		copy = *this;
 		for(int i = 0; i < rhs.m_size; i++)
 			copy.m_arr[i] -= rhs.m_arr[i];
-	}	
+	}
 	else
 	{
 		copy = rhs;
@@ -269,7 +273,7 @@ nVect<T> nVect<T>::operator-(const nVect<T> & rhs)
 		}
 	}
 	return copy;
-}	
+}
 
 template <typename T>
 nVect<T> nVect<T>::operator-()
@@ -292,7 +296,7 @@ nVect<T> nVect<T>::apply(T func (T)) const
 	}
 	return new_vec;
 }
-	
+
 //
 //----------------- Accessor ------------------//
 //
@@ -300,7 +304,7 @@ nVect<T> nVect<T>::apply(T func (T)) const
 template <typename T>
 T& nVect<T>::get(const int index)
 {
-	if(index >= m_size || index < 0) 
+	if(index >= m_size || index < 0)
 		throw(std::domain_error(std::to_string(index)));
 	return m_arr[index];
 }
@@ -348,20 +352,20 @@ double nVect<T>::operator^(const int norm) const
 	double error = .001;
 	double difference = 1;
 	double current;
-	
+
 	if(norm < 1) throw std::domain_error(std::to_string(norm));
-	
+
 	for(int i = 0; i < m_size; i++)
 	{
 		tot_sum += power(m_arr[i], norm);
 	}
-	
+
 	while(difference > error)
 	{
 		current = (((norm - 1) * Pre) + tot_sum/(power(Pre, norm - 1))) / norm;
 		difference = abs(current - Pre);
 		Pre = current;
-	}	
+	}
 	return current;
 }
 
@@ -390,7 +394,7 @@ nVect<T> operator+(const nVect<T> & lhs, const nVect<T> & rhs)
 		}
 	}
 	return copy;
-}	
+}
 
 template <typename T>
 nVect<T> operator*(const nVect<T> & lhs, const T & rhs)
@@ -411,7 +415,7 @@ nVect<T> operator*(const T & lhs, const nVect<T> & rhs)
 
 template <typename T>
 std::ostream & operator << (std::ostream & out, nVect<T> & rhs)
-{	
+{
 	for(auto t: rhs)
 	{
 		out << t << " ";
@@ -424,13 +428,14 @@ std::istream & operator >> (std::istream & in, nVect<T>& rhs)
 {
 	std::istream_iterator<T> in_it(in);
 	std::istream_iterator<T> eos;
-	
+
 	rhs.clear();
-	
+
 	for(;in_it != eos; ++in_it)
 	{
 		rhs.push_back(*in_it);
 	}
+
 	return in;
 }
 	
