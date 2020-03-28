@@ -18,7 +18,7 @@ class nTrix
 {
 	private:
 		short m_row;
-	  short m_col;
+		short m_col;
 		T** m_matrix;
 
 	public:
@@ -28,7 +28,7 @@ class nTrix
 		nTrix();
 		nTrix(const std::initializer_list<std::initializer_list<T>> grid);
 		nTrix(const short num_rows, const short num_cols);
-    nTrix(const nVect<T>& rhs);
+		nTrix(const nVect<T>& rhs);
 		nTrix(const nTrix<T>& rhs);
 		nTrix<T>& operator=(const nTrix<T>& rhs);
 		~nTrix();
@@ -39,17 +39,15 @@ class nTrix
 		short cols() const;
 		const T& operator()(const int row_index, const int col_index) const;
 
-
 		// Mutators //
 
 		T& operator()(const int row_index, const int col_index);
-    nTrix<T> operator+(const nTrix<T>& rhs) const;
-    nTrix<T> operator-(const nTrix<T>& rhs) const;
-    nTrix<T> operator-() const;
-    nTrix<T> operator*(const nTrix<T>& rhs) const;
-    nTrix<T> operator*(const nVect<T>& rhs) const;
+		nTrix<T> operator+(const nTrix<T>& rhs) const;
+		nTrix<T> operator-(const nTrix<T>& rhs) const;
+		nTrix<T> operator-() const;
+		nTrix<T> operator*(const nTrix<T>& rhs) const;
+		nTrix<T> operator*(const nVect<T>& rhs) const;
 		void clear(nTrix<T>& rhs);
-
 
 		// Friend //
 		template <typename U>
@@ -66,12 +64,19 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs);
 
 template <typename T>
 std::istream& operator>>(std::istream& in, const nTrix<T>& rhs);
+};
+
+// Extras //
+
+template <typename T>
+std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs);
 
 template <typename T>
 nTrix<T> operator*(const nTrix<T>& lhs, const float scalar);
 
 template <typename T>
 nTrix<T> operator*(const nVect<T>& lhs, const nTrix<T>& rhs);
+<<<<<<< HEAD
 
 template <typename T>
 float frobenius(const nTrix<T>& rhs);

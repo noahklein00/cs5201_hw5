@@ -442,18 +442,3 @@ nTrix<T> operator*(const nVect<T>& lhs, const nTrix<T>& rhs)
 	nTrix<T> copy(lhs);
 	return copy * rhs;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
