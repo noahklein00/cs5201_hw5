@@ -64,19 +64,12 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs);
 
 template <typename T>
 std::istream& operator>>(std::istream& in, const nTrix<T>& rhs);
-};
-
-// Extras //
-
-template <typename T>
-std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs);
 
 template <typename T>
 nTrix<T> operator*(const nTrix<T>& lhs, const float scalar);
 
 template <typename T>
 nTrix<T> operator*(const nVect<T>& lhs, const nTrix<T>& rhs);
-<<<<<<< HEAD
 
 template <typename T>
 float frobenius(const nTrix<T>& rhs);

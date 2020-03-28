@@ -7,7 +7,6 @@ int main()
 	{
 		int start_s = clock();
 		//nTrix<int> noah({{1,2,3},{4,5,6},{7,8,9}});
-<<<<<<< HEAD
 		nTrix<int> noah({{1,2},{3,4}});
 		nVect<int> sean({4,5,6});
 
