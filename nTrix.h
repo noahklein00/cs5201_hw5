@@ -54,7 +54,7 @@ class nTrix
 		friend std::ostream& operator<<(std::ostream& out, const nTrix<U>& rhs);
 
 		template <typename U>
-		friend std::istream& operator>>(std::istream& in, const nTrix<U>& rhs);
+		friend std::istream& operator>>(std::istream& in, nTrix<U>& rhs);
 };
 
 // Extras //
@@ -63,7 +63,7 @@ template <typename T>
 std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs);
 
 template <typename T>
-std::istream& operator>>(std::istream& in, const nTrix<T>& rhs);
+std::istream& operator>>(std::istream& in, nTrix<T>& rhs);
 
 template <typename T>
 nTrix<T> operator*(const nTrix<T>& lhs, const float scalar);

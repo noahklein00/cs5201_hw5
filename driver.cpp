@@ -13,6 +13,7 @@ int main()
 		//std::cin >> sean;
 		//std::cout << sean << std::endl;
 		std::cin >> noah;
+		std::cout << noah << std::endl;
 		//std::cout << invert(noah) << std::endl;
 
 		int stop_s = clock();

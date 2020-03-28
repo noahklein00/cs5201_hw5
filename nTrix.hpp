@@ -360,57 +360,85 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs)
 }
 
 template <typename T>
-std::istream& operator>>(std::istream& in, const nTrix<T>& rhs)
+std::istream& operator>>(std::istream& in, nTrix<T>& rhs)
 {
-	// int num_row = -1;
-	// int counter = 0;
-	// std::string line;
-	// nVect<T> temp;
-	//
-	// while(in)
-	// {
-	// 	std::getline(in, line);
-	//
-	// 	for(auto itr = line.cbegin(); itr != line.cend(); ++itr)
-	// 	{
-	// 		if(!isspace(*itr))
-	// 		{
-	// 			std::cout << *itr;
-	// 			temp.push_back(static_cast<T>(*itr));
-	// 		}
-	// 		std::cout << std::endl;
-	// 	}
-	// 	num_row++;
-	// 	counter = 0;
-	// }
-	// std::cout << temp << std::endl;
-	//
-	// std::cout << temp << std::endl;
-	// std::cout << num_row << std::endl;
-	// std::cout << "here" << std::endl;
-	//
-	// return in;
 	nVect<T> temp;
-	std::string line;
+	T placeholder;
 	char c;
+	char a[5];
 	int lineCounter = 0;
+	int colCounter = 0;
+	std::string line;
+	int peeker = 5;
 
-	std::istream_iterator<T> in_it(in);
-	std::istream_iterator<T> eos;
-
-	temp.clear();
-
-	for(;in_it != eos; ++in_it)
+	while(in)
 	{
-		in.get(c);
-		if(c == '\n')
+		peeker = in.peek();
+		std::cout << "peek: " << peeker << std::endl;
+		if(peeker == 92)
 		{
-			lineCounter++;
+			c = in.get();
+			std::cout << "peek: " << peeker << std::endl;
+			peeker = in.peek();
+			if(peeker == 110)
+			{
+				lineCounter++;
+			}
 		}
-		temp.push_back(*in_it);
+		else
+		{
+			in >> placeholder;
+			std::cout << "placeholder: " << placeholder << std::endl;
+		}
+		c = in.get();
+
+		// // if(in.peek() = '\n')
+		// // std::cout << "here" << std::endl;
+		// // else
+		// in >> temp;
 	}
+	std::cout << "line number: " << lineCounter << std::endl;
 
 
+
+
+
+
+
+
+
+
+
+// 	std::istream_iterator<T> in_it(in);
+// 	std::istream_iterator<T> eos;
+//
+// 	temp.clear();
+//
+// 	for(;in_it != eos; ++in_it)
+// 	{
+// 		in.get(c);
+// 		std::cout << "c: " << c << std::endl;
+// 		std::cout << "in_it: " << *in_it << std::endl;
+//
+// 		if(c == '\n')
+// 		{
+// 			lineCounter++;
+// 		}
+// 		temp.push_back(*in_it);
+// 	}
+//
+// 	std::cout << lineCounter << std::endl;
+//
+// 	colCounter = temp.size()/lineCounter; //number of columns
+// 	rhs = nTrix<T>(lineCounter,colCounter); //new matrix sizes
+//
+// 	for(int i = 0; i < lineCounter; i++)
+// 	{
+// 		for(int j = 0; j < colCounter; j++)
+// 		{
+// 			rhs.m_matrix[i][j] = temp[i * lineCounter + j];
+// 		}
+// 	}
 	return in;
 }
 
