@@ -340,6 +340,22 @@ void nTrix<T>::clear(nTrix<T>& rhs)
 	rhs.m_col = 0;
 }
 
+template <typename T>
+nTrix<T> transpose(const nTrix<T>& rhs)
+{
+	nTrix<T> copy(rhs.cols(), rhs.rows());
+
+	for(int i = 0; i < rhs.rows(); ++i)
+	{
+		for(int j = 0; j < rhs.cols(); ++j)
+		{
+			std::cout << "j: " << j << std::endl;
+			copy(j,i) = rhs(i,j);
+		}
+	}
+	return copy;
+}
+
 //***************************** Friends *************************************//
 
 template <typename T>
@@ -362,83 +378,66 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs)
 template <typename T>
 std::istream& operator>>(std::istream& in, nTrix<T>& rhs)
 {
-	nVect<T> temp;
-	T placeholder;
-	char c;
-	char a[5];
-	int lineCounter = 0;
-	int colCounter = 0;
-	std::string line;
-	int peeker = 5;
+	nVect<T> temp; //nVect to store and expand with input
+	T placeholder; //T object to store input
+	char c; //holds data that is not input into the matrix
+	int lineCounter = 0; //stores the total amount of rows
+	int colCounter = 0; //checks to see current number of columns in a row
+	int peeker; //checks to see if the row ends
+	bool cond = false; //checks that the stream has correct inputs
+	int numCol; //holds the initial column size to check successive rows
 
-	while(in)
+	while(in && !cond)
 	{
 		peeker = in.peek();
-		std::cout << "peek: " << peeker << std::endl;
 		if(peeker == 92)
 		{
 			c = in.get();
-			std::cout << "peek: " << peeker << std::endl;
 			peeker = in.peek();
 			if(peeker == 110)
 			{
+				c = in.get();
+				if(lineCounter == 0)
+				{
+					numCol = colCounter;
+				}
+				if(numCol != colCounter)
+				{
+					throw(std::domain_error(std::to_string(colCounter)));
+				}
+				colCounter = 0;
 				lineCounter++;
 			}
 		}
 		else
 		{
 			in >> placeholder;
-			std::cout << "placeholder: " << placeholder << std::endl;
+			cond = in.fail();
+			if(cond)
+			{
+				//throw(std::range_error(std::to_string(placeholder)));
+				in.clear();
+				in.ignore();
+			}
+			else
+			{
+				temp.push_back(placeholder);
+				colCounter++;
+			}
 		}
-		c = in.get();
-
-		// // if(in.peek() = '\n')
-		// // std::cout << "here" << std::endl;
-		// // else
-		// in >> temp;
 	}
-	std::cout << "line number: " << lineCounter << std::endl;
 
-
-
-
-
-
-
-
-
-
-
-// 	std::istream_iterator<T> in_it(in);
-// 	std::istream_iterator<T> eos;
-//
-// 	temp.clear();
-//
-// 	for(;in_it != eos; ++in_it)
-// 	{
-// 		in.get(c);
-// 		std::cout << "c: " << c << std::endl;
-// 		std::cout << "in_it: " << *in_it << std::endl;
-//
-// 		if(c == '\n')
-// 		{
-// 			lineCounter++;
-// 		}
-// 		temp.push_back(*in_it);
-// 	}
-//
-// 	std::cout << lineCounter << std::endl;
-//
-// 	colCounter = temp.size()/lineCounter; //number of columns
-// 	rhs = nTrix<T>(lineCounter,colCounter); //new matrix sizes
-//
-// 	for(int i = 0; i < lineCounter; i++)
-// 	{
-// 		for(int j = 0; j < colCounter; j++)
-// 		{
-// 			rhs.m_matrix[i][j] = temp[i * lineCounter + j];
-// 		}
-// 	}
+	nTrix<T> new_matrix(lineCounter, numCol);
+	rhs = new_matrix;
+	auto itr = temp.begin();
+	for(int i = 0; i < lineCounter; i++)
+	{
+		for(int j = 0; j < numCol; j++)
+		{
+			rhs.m_matrix[i][j] = *itr;
+			itr++;
+		}
+	}
 	return in;
 }
 

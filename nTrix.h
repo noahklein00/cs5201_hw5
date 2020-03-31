@@ -79,5 +79,8 @@ nTrix<float> invert(const nTrix<T>& rhs);
 
 nTrix<float> r_invert(const double I, nTrix<float> P, const nTrix<float> A);
 
+template <typename T>
+nTrix<T> transpose(const nTrix<T>& rhs);
+
 #include "nTrix.hpp"
 #endif
