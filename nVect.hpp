@@ -1,7 +1,7 @@
 // Programmer : Noah Klein
 // Instructor : Price
 // Class      : CS5201 Spring 2020
-// Assignment : Homework 5 - Matrices, Filters, and Guidance 
+// Assignment : Homework 5 - Matrices, Filters, and Guidance
 // Filename   : nVect.hpp
 
 template <typename T>

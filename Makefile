@@ -15,7 +15,7 @@
 ###############################################################################
 
 CXX = /usr/bin/g++
-FLAGS = -W -Wall -g -pedantic-errors
+FLAGS = -Wall -Wextra -Wpedantic -Werror
 OBJECTS = driver.o\
           PID.o
 
@@ -45,7 +45,8 @@ driver.o: driver.cpp\
           PID.h\
           PID.cpp\
           lander.h\
-          lander.hpp
+          lander.hpp\
+          filter.h
 	g++ -c driver.cpp
 
 PID.o: PID.cpp\

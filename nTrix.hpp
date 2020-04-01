@@ -321,17 +321,17 @@ nTrix<T> nTrix<T>::operator*(const nVect<T>& rhs) const
 }
 
 template <typename T>
-void nTrix<T>::clear(nTrix<T>& rhs)
+void nTrix<T>::clear()
 {
-	for(int i = 0; i < rhs.rows(); i++)
+	for(int i = 0; i < this -> rows(); i++)
 	{
-		delete[] rhs.m_matrix[i];
-		rhs.m_matrix[i] = NULL;
+		delete[] m_matrix[i];
+		m_matrix[i] = NULL;
 	}
-	delete[] rhs.m_matrix;
-	rhs.m_matrix = NULL;
-	rhs.m_row = 0;
-	rhs.m_col = 0;
+	delete[] m_matrix;
+	m_matrix = NULL;
+	m_row = 0;
+	m_col = 0;
 }
 
 template <typename T>
@@ -404,66 +404,92 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs)
 template <typename T>
 std::istream& operator>>(std::istream& in, nTrix<T>& rhs)
 {
-	nVect<T> temp; //nVect to store and expand with input
-	T placeholder; //T object to store input
-	char c; //holds data that is not input into the matrix
-	int lineCounter = 0; //stores the total amount of rows
-	int colCounter = 0; //checks to see current number of columns in a row
-	int peeker; //checks to see if the row ends
-	bool cond = false; //checks that the stream has correct inputs
-	int numCol; //holds the initial column size to check successive rows
+	// nVect<T> temp; //nVect to store and expand with input
+	// T placeholder; //T object to store input
+	// char c; //holds data that is not input into the matrix
+	// int lineCounter = 0; //stores the total amount of rows
+	// int colCounter = 0; //checks to see current number of columns in a row
+	// int peeker; //checks to see if the row ends
+	// bool cond = false; //checks that the stream has correct inputs
+	// int numCol; //holds the initial column size to check successive rows
+	//
+	// while(in && !cond)
+	// {
+	// 	peeker = in.peek();
+	// 	if(peeker == 92)
+	// 	{
+	// 		c = in.get();
+	// 		peeker = in.peek();
+	// 		if(peeker == 110)
+	// 		{
+	// 			c = in.get();
+	// 			if(lineCounter == 0)
+	// 			{
+	// 				numCol = colCounter;
+	// 			}
+	// 			if(numCol != colCounter)
+	// 			{
+	// 				throw(std::domain_error(std::to_string(colCounter)));
+	// 			}
+	// 			colCounter = 0;
+	// 			lineCounter++;
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		in >> placeholder;
+	// 		cond = in.fail();
+	// 		if(cond)
+	// 		{
+	// 			//throw(std::range_error(std::to_string(placeholder)));
+	// 			in.clear();
+	// 			in.ignore();
+	// 		}
+	// 		else
+	// 		{
+	// 			temp.push_back(placeholder);
+	// 			colCounter++;
+	// 		}
+	// 	}
+	// }
+	//
+	// nTrix<T> new_matrix(lineCounter, numCol);
+	// rhs = new_matrix;
+	// auto itr = temp.begin();
+	// for(int i = 0; i < lineCounter; i++)
+	// {
+	// 	for(int j = 0; j < numCol; j++)
+	// 	{
+	// 		rhs.m_matrix[i][j] = *itr;
+	// 		itr++;
+	// 	}
+	// }
+	// return in;
 
-	while(in && !cond)
+	std::istream_iterator<T> in_it(in);
+	std::istream_iterator<T> eos;
+	nVect<T> temp;
+
+	temp.clear();
+
+	while(in_it != eos)
 	{
-		peeker = in.peek();
-		if(peeker == 92)
-		{
-			c = in.get();
-			peeker = in.peek();
-			if(peeker == 110)
-			{
-				c = in.get();
-				if(lineCounter == 0)
-				{
-					numCol = colCounter;
-				}
-				if(numCol != colCounter)
-				{
-					throw(std::domain_error(std::to_string(colCounter)));
-				}
-				colCounter = 0;
-				lineCounter++;
-			}
-		}
-		else
-		{
-			in >> placeholder;
-			cond = in.fail();
-			if(cond)
-			{
-				//throw(std::range_error(std::to_string(placeholder)));
-				in.clear();
-				in.ignore();
-			}
-			else
-			{
-				temp.push_back(placeholder);
-				colCounter++;
-			}
-		}
+		std::cout << "check 1: " << *in_it << std::endl;
+		temp.push_back(*in_it);
+		++in_it;
+		std::cout << in.peek() << std::endl;
 	}
 
-	nTrix<T> new_matrix(lineCounter, numCol);
-	rhs = new_matrix;
-	auto itr = temp.begin();
-	for(int i = 0; i < lineCounter; i++)
+	std::istream_iterator<T> inner(in);
+	while(inner != eos)
 	{
-		for(int j = 0; j < numCol; j++)
-		{
-			rhs.m_matrix[i][j] = *itr;
-			itr++;
-		}
+		std::cout << "check 2" << std::endl;
+		temp.push_back(*inner);
+		++inner;
 	}
+
+
+	std::cout << temp << std::endl;
 	return in;
 }
 
@@ -527,50 +553,3 @@ nTrix<float> r_invert(const nTrix<T>& A, nTrix<float>& B,
 		return r_invert(A, B, E, I, Cerror, Perror);
 	}
 }
-
-// template <typename T>
-// nTrix<float> invert(const nTrix<T>& A)
-// {
-// 	if(A.rows() != A.cols())
-// 	{
-// 		throw(std::invalid_argument(std::to_string(A.rows())));
-// 	}
-//
-// 	const int N = A.rows();
-// 	nTrix<float> P(N,N);
-// 	nTrix<float> copy(A);
-//
-// 	for(int i = 0; i < N; i++)
-// 	{
-// 		for(int j = 0; j < N; j++)
-// 		{
-// 			if(i == j)
-// 			{
-// 				P(i,j) = 1.0;
-// 			}
-// 			else
-// 			{
-// 				P(i,j) = 0.0;
-// 			}
-// 		}
-// 	}
-//
-// 	return r_invert(frobenius(P),P,copy);
-// }
-//
-// nTrix<float> r_invert(const double I, nTrix<float> P, const nTrix<float> A)
-// {
-// 	double temp; //stores the frobenius norm of the predictor
-//
-// 	P = (P * 2) - (A * P * P);
-// 	temp = frobenius(P);
-//
-// 	if(((std::abs(temp - I) / I) * 100) < .000001)
-// 	{
-// 		return P;
-// 	}
-// 	else
-// 	{
-// 		return r_invert(temp, P, A);
-// 	}
-// }

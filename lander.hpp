@@ -40,9 +40,10 @@ nVect<float> lander::operator()(const nVect<float>& input)
 {
   *m_state = input;
   float m_signal = (*controller)((*m_state)[0]);
-  (*m_state)[2] = (radius * m_signal)/moment;
+  //std::cout << m_signal << std::endl;
+  (*m_state)[2] = (radius * -m_signal)/moment;
   (*m_state)[1] += ((*m_state)[2]) * m_step;
-  (*m_state)[0] += ((*m_state)[2]) * m_step * m_step;
+  (*m_state)[0] += .5 * ((*m_state)[1]) * m_step;
   return *m_state;
 }
 

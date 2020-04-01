@@ -1,27 +1,45 @@
 #include "nTrix.h"
 #include "PID.h"
 #include "lander.h"
+#include "filter.h"
 #include <ctime>
+#include <random>
 
 int main()
 {
 	try
 	{
-		int start_s = clock();
-		//nTrix<int> noah({{1,2,3},{4,5,6},{7,8,9}});
-		//nTrix<float> noah({{4,-1,0,2},{3,5,-2,1},{0,7,0,-1},{4,0,3,0}});
+		//int start_s = clock();
 		lander moon(.1, {0,0,0}, 3.141593/8);
 		nVect<float> state({0,0,0});
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		float sample;
+		std::normal_distribution<float> dist(5.0,1.0);
+		float original;
+		float altered;
+		int array[100] = {0};
 
-		//std::cout << noah.invert() << std::endl;
 		for(int i = 0; i < 2000; ++i)
 		{
 			state = moon(state);
-			std::cout << "time: " << i << " " << moon << std::endl;
+			//std::cout << "original: " << state[0] << std::endl;
+			original = state[0];
+			std::normal_distribution<float> dist(state[0], state[0] * .25);
+			state[0] = dist(gen);
+			//std::cout << "with noise: " << state[0] << std::endl;
+			altered = state[0];
+			//std::cout << "time: " << i << " " << moon << std::endl;
+			array[(int)((std::abs(altered - original)/original) * 100)]++;
+
 		}
 
-		int stop_s = clock();
-		std::cout << "time: " << (stop_s - start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
+		for(int i = 0; i < 100; ++i)
+		{
+			std::cout << "percent: " << i << " frequency: " << array[i] << std::endl;
+		}
+		//int stop_s = clock();
+		//std::cout << "time: " << (stop_s - start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 	}
 	catch(std::domain_error& e)
 	{
