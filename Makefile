@@ -43,7 +43,9 @@ driver.o: driver.cpp\
           nVect.h\
           nVect.hpp\
           PID.h\
-          PID.cpp
+          PID.cpp\
+          lander.h\
+          lander.hpp
 	g++ -c driver.cpp
 
 PID.o: PID.cpp\

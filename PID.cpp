@@ -17,9 +17,9 @@ PID::PID(const float step, const float d_value)
 	m_Perror = 0;
 	m_signal = 0;
 	m_kstore = nVect<float>(3);
-	m_kstore[0] = 10;
-	m_kstore[1] = .1;
-	m_kstore[2] = .1;
+	m_kstore[0] = 0;
+	m_kstore[1] = 0;
+	m_kstore[2] = 100;
 }
 
 PID::PID(const PID& rhs)

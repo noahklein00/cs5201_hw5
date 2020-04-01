@@ -171,17 +171,59 @@ const T& nTrix<T>::operator()(const int row_index, const int col_index) const
 }
 
 template <typename T>
-float frobenius(const nTrix<T>& rhs)
+float nTrix<T>::one_norm() const
 {
-	float norm = 0;
-	for(int i = 0; i < rhs.rows(); i++)
+	float col_sum = 0; //individual column sums
+	float max_sum = 0; //maximum column sum
+
+	for(int i = 0; i < this -> cols(); ++i)
 	{
-		for(int j = 0; j < rhs.cols(); j++)
+		for(int j = 0; j < this -> rows(); ++j)
 		{
-			norm += (rhs(i,j) * rhs(i,j));
+			col_sum += std::abs(this -> m_matrix[j][i]);
 		}
+		if(i == 0)
+		{
+			max_sum = col_sum;
+		}
+		else
+		{
+			if(col_sum > max_sum)
+			{
+				max_sum = col_sum;
+			}
+		}
+		col_sum = 0;
 	}
-	return sqrt(norm);
+	return max_sum;
+}
+
+template <typename T>
+float nTrix<T>::infinity_norm() const
+{
+	float row_sum = 0; //individual row sums
+	float max_sum = 0; //maximum row sum
+
+	for(int i = 0; i < this -> rows(); ++i)
+	{
+		for(int j = 0; j < this -> cols(); ++j)
+		{
+			row_sum += std::abs(this -> m_matrix[i][j]);
+		}
+		if(i == 0)
+		{
+			max_sum = row_sum;
+		}
+		else
+		{
+			if(row_sum > max_sum)
+			{
+				max_sum = row_sum;
+			}
+		}
+		row_sum = 0;
+	}
+	return max_sum;
 }
 
 //***************************** Mutators ************************************//
@@ -279,53 +321,6 @@ nTrix<T> nTrix<T>::operator*(const nVect<T>& rhs) const
 }
 
 template <typename T>
-nTrix<float> invert(const nTrix<T>& A)
-{
-	if(A.rows() != A.cols())
-	{
-		throw(std::invalid_argument(std::to_string(A.rows())));
-	}
-
-	const int N = A.rows();
-	nTrix<float> P(N,N);
-	nTrix<float> copy(A);
-
-	for(int i = 0; i < N; i++)
-	{
-		for(int j = 0; j < N; j++)
-		{
-			if(i == j)
-			{
-				P(i,j) = 1.0;
-			}
-			else
-			{
-				P(i,j) = 0.0;
-			}
-		}
-	}
-
-	return r_invert(frobenius(P),P,copy);
-}
-
-nTrix<float> r_invert(const double I, nTrix<float> P, const nTrix<float> A)
-{
-	double temp; //stores the frobenius norm of the predictor
-
-	P = (P * 2) - (A * P * P);
-	temp = frobenius(P);
-
-	if(((std::abs(temp - I) / I) * 100) < .000001)
-	{
-		return P;
-	}
-	else
-	{
-		return r_invert(temp, P, A);
-	}
-}
-
-template <typename T>
 void nTrix<T>::clear(nTrix<T>& rhs)
 {
 	for(int i = 0; i < rhs.rows(); i++)
@@ -340,16 +335,48 @@ void nTrix<T>::clear(nTrix<T>& rhs)
 }
 
 template <typename T>
-nTrix<T> transpose(const nTrix<T>& rhs)
+nTrix<float> nTrix<T>::invert() const
 {
-	nTrix<T> copy(rhs.cols(), rhs.rows());
-
-	for(int i = 0; i < rhs.rows(); ++i)
+	if(this -> rows() != this -> cols())
 	{
-		for(int j = 0; j < rhs.cols(); ++j)
+		std::cout << "Cannot invert non square matrix: ";
+		throw(std::range_error(std::to_string(this -> rows())));
+	}
+	nTrix<float> copy(*this);
+	float t = 1/((this -> infinity_norm()) * (this -> one_norm()));
+	nTrix<float> B = t * (this -> transpose());
+	nTrix<float> identity(this -> cols(), this -> cols());
+
+	for(int i = 0; i < identity.rows(); i++)
+	{
+		for(int j = 0; j < identity.cols(); j++)
 		{
-			std::cout << "j: " << j << std::endl;
-			copy(j,i) = rhs(i,j);
+			if(i == j)
+			{
+				identity.m_matrix[i][j] = 1.0;
+			}
+			else
+			{
+				identity.m_matrix[i][j] = 0.0;
+			}
+		}
+	}
+
+	nTrix<float> E = identity - (B * *this);
+
+	return r_invert(*this, B, E, identity, frobenius(B), 0);
+}
+
+template <typename T>
+nTrix<T> nTrix<T>::transpose() const
+{
+	nTrix<T> copy(this -> cols(), this -> rows());
+
+	for(int i = 0; i < this -> rows(); ++i)
+	{
+		for(int j = 0; j < this -> cols(); ++j)
+		{
+			copy(j,i) = this -> m_matrix[i][j];
 		}
 	}
 	return copy;
@@ -468,3 +495,82 @@ nTrix<T> operator*(const nVect<T>& lhs, const nTrix<T>& rhs)
 	nTrix<T> copy(lhs);
 	return copy * rhs;
 }
+
+template <typename T>
+float frobenius(const nTrix<T>& rhs)
+{
+	float norm = 0;
+	for(int i = 0; i < rhs.rows(); i++)
+	{
+		for(int j = 0; j < rhs.cols(); j++)
+		{
+			norm += (rhs(i,j) * rhs(i,j));
+		}
+	}
+	return sqrt(norm);
+}
+
+template <typename T>
+nTrix<float> r_invert(const nTrix<T>& A, nTrix<float>& B,
+	nTrix<float>& E, const nTrix<float>& I,  float Cerror, float Perror)
+{
+	B = (I + E) * B;
+	Perror = Cerror;
+	Cerror = frobenius(B);
+	if(((std::abs(Cerror - Perror)/Perror) * 100) < .000001)
+	{
+		return B;
+	}
+	else
+	{
+		E = I - (B * A);
+		return r_invert(A, B, E, I, Cerror, Perror);
+	}
+}
+
+// template <typename T>
+// nTrix<float> invert(const nTrix<T>& A)
+// {
+// 	if(A.rows() != A.cols())
+// 	{
+// 		throw(std::invalid_argument(std::to_string(A.rows())));
+// 	}
+//
+// 	const int N = A.rows();
+// 	nTrix<float> P(N,N);
+// 	nTrix<float> copy(A);
+//
+// 	for(int i = 0; i < N; i++)
+// 	{
+// 		for(int j = 0; j < N; j++)
+// 		{
+// 			if(i == j)
+// 			{
+// 				P(i,j) = 1.0;
+// 			}
+// 			else
+// 			{
+// 				P(i,j) = 0.0;
+// 			}
+// 		}
+// 	}
+//
+// 	return r_invert(frobenius(P),P,copy);
+// }
+//
+// nTrix<float> r_invert(const double I, nTrix<float> P, const nTrix<float> A)
+// {
+// 	double temp; //stores the frobenius norm of the predictor
+//
+// 	P = (P * 2) - (A * P * P);
+// 	temp = frobenius(P);
+//
+// 	if(((std::abs(temp - I) / I) * 100) < .000001)
+// 	{
+// 		return P;
+// 	}
+// 	else
+// 	{
+// 		return r_invert(temp, P, A);
+// 	}
+// }

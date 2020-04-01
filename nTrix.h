@@ -9,8 +9,8 @@
 #ifndef NTRIX_H
 #define NTRIX_H
 
-#include <iostream>
-#include <cmath>
+//#include <iostream>
+//#include <cmath>
 #include "nVect.h"
 
 template <typename T>
@@ -38,6 +38,8 @@ class nTrix
 		short rows() const;
 		short cols() const;
 		const T& operator()(const int row_index, const int col_index) const;
+		float one_norm() const;
+		float infinity_norm() const;
 
 		// Mutators //
 
@@ -48,8 +50,10 @@ class nTrix
 		nTrix<T> operator*(const nTrix<T>& rhs) const;
 		nTrix<T> operator*(const nVect<T>& rhs) const;
 		void clear(nTrix<T>& rhs);
+		nTrix<float> invert() const;
+		nTrix<T> transpose() const;
 
-		// Friend //
+		// Friends //
 		template <typename U>
 		friend std::ostream& operator<<(std::ostream& out, const nTrix<U>& rhs);
 
@@ -75,12 +79,13 @@ template <typename T>
 float frobenius(const nTrix<T>& rhs);
 
 template <typename T>
-nTrix<float> invert(const nTrix<T>& rhs);
+nTrix<float> r_invert(const nTrix<T>& A, nTrix<float>& B,
+	nTrix<float>& E, const nTrix<float>& I,  float Cerror, float Perror);
 
-nTrix<float> r_invert(const double I, nTrix<float> P, const nTrix<float> A);
-
-template <typename T>
-nTrix<T> transpose(const nTrix<T>& rhs);
+// template <typename T>
+// nTrix<float> invert(const nTrix<T>& rhs);
+//
+// nTrix<float> r_invert(const double I, nTrix<float> P, const nTrix<float> A);
 
 #include "nTrix.hpp"
 #endif
