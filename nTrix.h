@@ -218,11 +218,11 @@ class nTrix
 		 * Description: * operator overload for the nTrix class that allows the user
 		 * to multiply a matrix with a vector.
 		 * \param rhs is a nVect object to be multiplied to a nTrix.
-		 * \return Returns a nTrix<T> object with the proper dimensions and
-		 * with the values having matrix multiplicaion applied.
+		 * \return Returns a nVect<T> object with the values having matrix
+		 * multiplicaion applied.
 		 * \pre * operator must be defined for type T.
-		 * \throw Throws a std::invalid_argument object if the two matrices are
-		 * not the correct dimensions for matrix multiplication to occur.
+		 * \throw Throws a std::invalid_argument object if the vector and matrix
+		 * are not the correct dimensions for multiplication to occur.
 		 */
 		nVect<T> operator*(const nVect<T>& rhs) const;
 
@@ -279,7 +279,8 @@ class nTrix
 		 * \return Returns the istream.
 		 * \pre >> operator must be defined for type T.
 		 * \post Stores the input in the object passed.
-		 * \throw tbd.
+		 * \throw Throws a std::range_error object if the user inputs an incorrect
+		 * number of items for a column.
 		 */
 		template <typename U>
 		friend std::istream& operator>>(std::istream& in, nTrix<U>& rhs);
@@ -309,7 +310,8 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs);
  * \return Returns the istream.
  * \pre >> operator must be defined for type T.
  * \post Stores the input in the object passed.
- * \throw tbd.
+ * \throw Throws a std::range_error object if the user inputs an incorrect
+ * number of items for a column.
  */
 template <typename T>
 std::istream& operator>>(std::istream& in, nTrix<T>& rhs);

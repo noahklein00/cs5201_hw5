@@ -23,6 +23,9 @@ PID::PID(const float step, const float d_value)
 	// m_kstore[0] = 5000.0; //P
 	// m_kstore[1] = 1000; //I
 	// m_kstore[2] = 6000.0; //D
+	// m_kstore[0] = 0.0; //P
+	// m_kstore[1] = 0.0; //I
+	// m_kstore[2] = 0.0; //D
 }
 
 PID::PID(const PID& rhs)

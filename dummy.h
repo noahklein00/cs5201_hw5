@@ -11,19 +11,24 @@
 
 #include "filter.h"
 
+//! dummy class.
+/*!
+ * This class is a derived filter class that acts as a passthrough of a state
+ * without actually filtering it.
+ */
 template <typename T>
 class dummy: public filter<T>
 {
   public:
 
-    /*! \brief
+    /*! \brief () operator
 		 *
-		 * Description:
-		 * \param
-     * \return
-     * \pre
-		 * \post
-		 * \throw
+		 * Description: () operator overload that inherits from the base class
+     * to allow the user to pass a nVect<T> state through.
+		 * \param state is the state that the user wants to pass through
+     * unfiltered.
+     * \return Returns a new nVect<T> that has the same values as the
+     * parameter.
 		 */
     virtual nVect<T> operator()(nVect<T>& state);
 };

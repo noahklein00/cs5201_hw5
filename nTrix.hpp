@@ -421,92 +421,52 @@ std::ostream& operator<<(std::ostream& out, const nTrix<T>& rhs)
 template <typename T>
 std::istream& operator>>(std::istream& in, nTrix<T>& rhs)
 {
-	// nVect<T> temp; //nVect to store and expand with input
-	// T placeholder; //T object to store input
-	// char c; //holds data that is not input into the matrix
-	// int lineCounter = 0; //stores the total amount of rows
-	// int colCounter = 0; //checks to see current number of columns in a row
-	// int peeker; //checks to see if the row ends
-	// bool cond = false; //checks that the stream has correct inputs
-	// int numCol; //holds the initial column size to check successive rows
-	//
-	// while(in && !cond)
-	// {
-	// 	peeker = in.peek();
-	// 	if(peeker == 92)
-	// 	{
-	// 		c = in.get();
-	// 		peeker = in.peek();
-	// 		if(peeker == 110)
-	// 		{
-	// 			c = in.get();
-	// 			if(lineCounter == 0)
-	// 			{
-	// 				numCol = colCounter;
-	// 			}
-	// 			if(numCol != colCounter)
-	// 			{
-	// 				throw(std::domain_error(std::to_string(colCounter)));
-	// 			}
-	// 			colCounter = 0;
-	// 			lineCounter++;
-	// 		}
-	// 	}
-	// 	else
-	// 	{
-	// 		in >> placeholder;
-	// 		cond = in.fail();
-	// 		if(cond)
-	// 		{
-	// 			//throw(std::range_error(std::to_string(placeholder)));
-	// 			in.clear();
-	// 			in.ignore();
-	// 		}
-	// 		else
-	// 		{
-	// 			temp.push_back(placeholder);
-	// 			colCounter++;
-	// 		}
-	// 	}
-	// }
-	//
-	// nTrix<T> new_matrix(lineCounter, numCol);
-	// rhs = new_matrix;
-	// auto itr = temp.begin();
-	// for(int i = 0; i < lineCounter; i++)
-	// {
-	// 	for(int j = 0; j < numCol; j++)
-	// 	{
-	// 		rhs.m_matrix[i][j] = *itr;
-	// 		itr++;
-	// 	}
-	// }
-	// return in;
-
 	std::istream_iterator<T> in_it(in);
 	std::istream_iterator<T> eos;
 	nVect<T> temp;
+	std::string line;
+	int rowCounter = 0;
+	int colCounter = 0;
+	int numCol = 0;
 
 	temp.clear();
-
 	while(in_it != eos)
 	{
-		std::cout << "check 1: " << *in_it << std::endl;
 		temp.push_back(*in_it);
+		colCounter++;
+		if(in.peek() == 92)
+		{
+			in.ignore(2,'\n');
+			if(rowCounter == 0)
+			{
+				numCol = colCounter;
+			}
+			else
+			{
+				if(colCounter != numCol)
+				{
+					std::cout << "Incorrect format for inputting a matrix: ";
+					throw(std::range_error(std::to_string(colCounter)));
+				}
+			}
+			colCounter = 0;
+			rowCounter++;
+		}
 		++in_it;
-		std::cout << in.peek() << std::endl;
 	}
 
-	std::istream_iterator<T> inner(in);
-	while(inner != eos)
+	nTrix<T> new_matrix(rowCounter, numCol);
+	rhs = new_matrix;
+	auto itr = temp.begin();
+	for(int i = 0; i < rowCounter; i++)
 	{
-		std::cout << "check 2" << std::endl;
-		temp.push_back(*inner);
-		++inner;
+		for(int j = 0; j < numCol; j++)
+		{
+			rhs.m_matrix[i][j] = *itr;
+			itr++;
+		}
 	}
 
-
-	std::cout << temp << std::endl;
 	return in;
 }
 
