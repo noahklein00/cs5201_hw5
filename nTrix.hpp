@@ -314,10 +314,27 @@ nTrix<T> nTrix<T>::operator*(const nTrix<T>& rhs) const
 }
 
 template <typename T>
-nTrix<T> nTrix<T>::operator*(const nVect<T>& rhs) const
+nVect<T> nTrix<T>::operator*(const nVect<T>& rhs) const
 {
-	nTrix<T> copy(rhs);
-	return *this * copy;
+	if(this -> cols() != rhs.size())
+	{
+		throw(std::invalid_argument(std::to_string(rhs.size())));
+	}
+
+	nVect<T> ret_vect;
+	ret_vect.clear();
+	T temp = 0;
+
+	for(int i = 0; i < this -> rows(); ++i)
+	{
+		for(int j = 0; j < this -> cols(); ++j)
+		{
+			temp += this -> m_matrix[i][j] * rhs[j];
+		}
+		ret_vect.push_back(temp);
+		temp = 0;
+	}
+	return ret_vect;
 }
 
 template <typename T>
@@ -543,7 +560,7 @@ nTrix<float> r_invert(const nTrix<T>& A, nTrix<float>& B,
 	B = (I + E) * B;
 	Perror = Cerror;
 	Cerror = frobenius(B);
-	if(((std::abs(Cerror - Perror)/Perror) * 100) < .000001)
+	if(((std::abs(Cerror - Perror)/Perror) * 100) < .0001)
 	{
 		return B;
 	}

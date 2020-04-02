@@ -13,13 +13,16 @@ PID::PID(const float step, const float d_value)
 
 	m_step = step;
 	desired_value = d_value;
-	m_Cerror = 0;
-	m_Perror = 0;
-	m_signal = 0;
+	m_Cerror = 0.0;
+	m_Perror = 0.0;
+	m_signal = 0.0;
 	m_kstore = nVect<float>(3);
-	m_kstore[0] = 1000; //P
-	m_kstore[1] = 1000; //I
-	m_kstore[2] = 2000; //D
+	m_kstore[0] = 10.0; //P
+	m_kstore[1] = .01; //I
+	m_kstore[2] = 20.0; //D
+	// m_kstore[0] = 5000.0; //P
+	// m_kstore[1] = 1000; //I
+	// m_kstore[2] = 6000.0; //D
 }
 
 PID::PID(const PID& rhs)
@@ -49,10 +52,9 @@ float PID::operator()(const float curr_value)
 	m_Perror = m_Cerror;
 	m_Cerror = ((curr_value - desired_value)/desired_value * 100);
 
-	//std::cout << "error: " << m_Cerror << std::endl;
-
 	past += (m_Perror + (m_Cerror - m_Perror)/2) * m_step;
 	future = (m_Cerror - m_Perror)/m_step;
+
 	m_signal = (m_kstore[0] * m_Cerror) + (m_kstore[1] * past) +
 		(m_kstore[2] * future);
 

@@ -37,8 +37,8 @@ class PID
 		/*! \brief constructor
 		 *
 		 * Description: Constructor for the PID class that takes and
-		 * initializes the step size, target value, the error storage
-		 * nVect, and the signal to be sent out.
+		 * initializes the step size, target value, the current and previous errors,
+		 * and the signal to be sent out.
 		 * \param step is the step size to be used by the PID object.
 		 * \param d_value is the target value for the error to be
 		 * calculated with.
@@ -54,8 +54,6 @@ class PID
      * errors, and the signal to be sent out.
 		 * \post Initializes a PID object with the default values.
 		 */
-		// PID(): m_step(.10), desired_value(0), m_error(nVect<float>(0)),
-		// 	m_signal(0), m_kstore(nVect<float>(3)) {}
     PID(): m_step(.10), desired_value(0), m_Cerror(0), m_Perror(0),
       m_signal(0), m_kstore(nVect<float>(3)) {}
 

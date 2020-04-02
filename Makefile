@@ -46,7 +46,13 @@ driver.o: driver.cpp\
           PID.cpp\
           lander.h\
           lander.hpp\
-          filter.h
+          filter.h\
+          dummy.h\
+          dummy.hpp\
+          lowPass.h\
+          lowPass.hpp\
+          kalman.h\
+          kalman.hpp
 	g++ -c driver.cpp
 
 PID.o: PID.cpp\

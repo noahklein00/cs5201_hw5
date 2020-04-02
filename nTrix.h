@@ -224,7 +224,7 @@ class nTrix
 		 * \throw Throws a std::invalid_argument object if the two matrices are
 		 * not the correct dimensions for matrix multiplication to occur.
 		 */
-		nTrix<T> operator*(const nVect<T>& rhs) const;
+		nVect<T> operator*(const nVect<T>& rhs) const;
 
 		/*! \brief Clear function
 		 *

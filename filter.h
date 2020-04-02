@@ -14,7 +14,17 @@ template <typename T>
 class filter
 {
   public:
-    virtual nVect<T>& operator()(nVect<T>& state) = 0;
+    
+    /*! \brief
+		 *
+		 * Description:
+		 * \param
+     * \return
+     * \pre
+		 * \post
+		 * \throw
+		 */
+    virtual nVect<T> operator()(nVect<T>& state) = 0;
 };
 
 #endif
