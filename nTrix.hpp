@@ -424,7 +424,6 @@ std::istream& operator>>(std::istream& in, nTrix<T>& rhs)
 	std::istream_iterator<T> in_it(in);
 	std::istream_iterator<T> eos;
 	nVect<T> temp;
-	std::string line;
 	int rowCounter = 0;
 	int colCounter = 0;
 	int numCol = 0;
@@ -434,7 +433,7 @@ std::istream& operator>>(std::istream& in, nTrix<T>& rhs)
 	{
 		temp.push_back(*in_it);
 		colCounter++;
-		if(in.peek() == 92)
+		if(in.peek() == 92 or in.peek() == 10)
 		{
 			in.ignore(2,'\n');
 			if(rowCounter == 0)
