@@ -67,6 +67,8 @@ class kalman: public filter<T>
      * system.
 		 * \post A kalman filter is initialized with all the values it needs to
      * operate.
+     * \throw Throws a std::invalid_argument object if any of the defined
+     * matrices would not hold up for a () operator calculation.
 		 */
     kalman(const data& A, const data& B, const nVect<T>& i_state, const data& P,
        const data& Q, const data& R, const data& I);
