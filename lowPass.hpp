@@ -2,7 +2,7 @@
 // Instructor : Price
 // Class      : CS5201 Spring 2020
 // Assignment : Homework 5 - Matrices, Filters, and Guidance
-// Filename   : nTrix.hpp
+// Filename   : lowPass.hpp
 
 template <typename T>
 lowPass<T>::lowPass(const float stepSize, const float f, const nVect<T> i_state)

@@ -31,6 +31,7 @@ class PID
 						   signal function. */
 		nVect<float> m_kstore; /*!< A nVect that stores the k values for
 								   the signal calculation. */
+		enum k_vals {kp, ki, kd};
 
 	public:
 

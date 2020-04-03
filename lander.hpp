@@ -28,6 +28,23 @@ lander::lander(const float step_size,
   m_controller = new PID(step_size, set_point);
 }
 
+lander& lander::operator=(const lander& rhs)
+{
+  m_step = rhs.m_step;
+  m_signal = rhs.m_signal;
+  m_state = new nVect<float>(*rhs.m_state);
+  m_controller = new PID(*rhs.m_controller);
+  return *this;
+}
+
+lander::lander(const lander& rhs)
+{
+  m_step = rhs.m_step;
+  m_signal = rhs.m_signal;
+  m_state = new nVect<float>(*rhs.m_state);
+  m_controller = new PID(*rhs.m_controller);
+}
+
 lander::~lander()
 {
   delete m_state;

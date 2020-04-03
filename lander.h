@@ -26,13 +26,13 @@ class lander
     float m_signal; /*!< A float that stores the control signal from the stored
                      * PID controller.
                      */
-    float m_radius = 4.0; /*!< A float that stores the radius variable
-                           * used in the calculaion of the angular acceleration.
-                           */
-    float m_moment = 100000.0; /*!< A float that stores the moment variable used
-                                * in the calculation of the angular
-                                * acceleration.
-                                */
+   float m_radius = 4.0; /*!< A float that stores the radius variable
+                          * used in the calculaion of the angular acceleration.
+                          */
+   float m_moment = 100000.0; /*!< A float that stores the moment variable used
+                               * in the calculation of the angular
+                               * acceleration.
+                               */
     nVect<float>* m_state; /*!< A nVect<float>* that stores the current state of
                             * the system.
                             */
@@ -68,6 +68,24 @@ class lander
 		 */
     lander(const float step_size,
       const std::initializer_list<float>& i_state, const float set_point);
+
+    /*! \brief Copy constructor
+     * Description: Copy constructor for the lander class that initializes a
+     * new lander object with the same values as another.
+     * \param rhs is the lander object to be copied.
+     * \post A new lander object is initialized with the same value as the
+     * object passed.
+     */
+    lander(const lander& rhs);
+
+    /*! \brief = operator
+     *
+     * Description: = operator for the lander class that sets a lander object's
+     * values equal to another lander.
+     * \param rhs is the lander object to be copied.
+     * \post The calling object's variables are set equal to the object passed.
+     */
+    lander& operator=(const lander& rhs);
 
     /*! \brief Destructor
 		 *

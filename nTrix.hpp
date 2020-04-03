@@ -21,7 +21,7 @@ nTrix<T>::nTrix()
 }
 
 template <typename T>
-nTrix<T>::nTrix(const std::initializer_list<std::initializer_list<T>> grid)
+nTrix<T>::nTrix(const std::initializer_list<std::initializer_list<T>>& grid)
 {
 	m_row = grid.size();
 	m_col = grid.begin() -> size();
@@ -226,6 +226,20 @@ float nTrix<T>::infinity_norm() const
 	return max_sum;
 }
 
+template <typename T>
+float nTrix<T>::frobenius() const
+{
+	float norm = 0;
+	for(int i = 0; i < this -> rows(); i++)
+	{
+		for(int j = 0; j < this -> cols(); j++)
+		{
+			norm += (this -> m_matrix[i][j] * this -> m_matrix[i][j]);
+		}
+	}
+	return sqrt(norm);
+}
+
 //***************************** Mutators ************************************//
 
 template <typename T>
@@ -381,7 +395,7 @@ nTrix<float> nTrix<T>::invert() const
 
 	nTrix<float> E = identity - (B * *this);
 
-	return r_invert(*this, B, E, identity, frobenius(B), 0);
+	return r_invert(*this, B, E, identity, B.frobenius(), 0);
 }
 
 template <typename T>
@@ -499,26 +513,12 @@ nTrix<T> operator*(const nVect<T>& lhs, const nTrix<T>& rhs)
 }
 
 template <typename T>
-float frobenius(const nTrix<T>& rhs)
-{
-	float norm = 0;
-	for(int i = 0; i < rhs.rows(); i++)
-	{
-		for(int j = 0; j < rhs.cols(); j++)
-		{
-			norm += (rhs(i,j) * rhs(i,j));
-		}
-	}
-	return sqrt(norm);
-}
-
-template <typename T>
 nTrix<float> r_invert(const nTrix<T>& A, nTrix<float>& B,
 	nTrix<float>& E, const nTrix<float>& I,  float Cerror, float Perror)
 {
 	B = (I + E) * B;
 	Perror = Cerror;
-	Cerror = frobenius(B);
+	Cerror = B.frobenius();
 	if(((std::abs(Cerror - Perror)/Perror) * 100) < .0001)
 	{
 		return B;

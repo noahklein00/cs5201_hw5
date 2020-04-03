@@ -2,7 +2,7 @@
 // Instructor : Price
 // Class      : CS5201 Spring 2020
 // Assignment : Homework 5 - Matrices, Filters, and Guidance
-// Filename   : nTrix.hpp
+// Filename   : kalman.hpp
 
 template <typename T>
 kalman<T>::kalman(const data& A, const data& B, const nVect<T>& i_state,
@@ -24,13 +24,10 @@ nVect<float> kalman<T>::operator()(const nVect<T>& measured,
 {
   nVect<T> control({0,0,signal});
   nVect<T> copy(measured);
-
-  //m_state = (m_A * m_state) + (m_B * signal);
-
+  
   m_state = (m_A * m_state) + (m_B * control);
   m_error = m_A * m_error * (m_A.transpose()) + m_process_error;
   m_K = m_error * (m_error + m_measurement_error).invert();
-  //m_state = m_state + m_K * (measured - m_state);
   m_state = m_state + m_K * (copy - m_state);
   m_error = (m_identity - m_K) * m_error;;
   return m_state;

@@ -10,6 +10,7 @@
 #define KALMAN_H
 
 #include "filter.h"
+#include "nTrix.h"
 
 //! kalman class.
 /*!

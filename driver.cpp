@@ -27,7 +27,7 @@ int main()
 												 	 {0,0,0},
 												 	 {{1,0,0},{0,1,0},{0,0,1}},
 												 	 {{0,0,0},{0,0,0},{0,0,0}},
-												 	 {{.25,0,0},{0,.25,0},{0,0,.25}}, //.25
+												 	 {{.25,0,0},{0,.25,0},{0,0,.25}},
 												 	 {{1,0,0},{0,1,0},{0,0,1}});
 		lander kal_land(.1, {0,0,0}, 3.141593/8);
 		nVect<float> kal_state({0,0,0});
@@ -71,9 +71,6 @@ int main()
 			comb_state = comb_kal_filt(comb_state, comb_land.getSignal());
 
 			std::cout << comb_state[0] << std::endl;
-
-			// std::cout << "time: " << i << " " << dum_land << " " << low_land
-			// 	<< " " << kal_land << " " << comb_land << std::endl;
 		}
 	}
 	catch(std::domain_error& e)

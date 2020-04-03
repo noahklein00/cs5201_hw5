@@ -47,7 +47,7 @@ class nTrix
 		 * \throw Throws a std::domain_error object if one of the lists is
 		 * not the same length as the others.
 		 */
-		nTrix(const std::initializer_list<std::initializer_list<T>> grid);
+		nTrix(const std::initializer_list<std::initializer_list<T>>& grid);
 
 		/*! \brief Constructor
 		 *
@@ -147,6 +147,14 @@ class nTrix
 		 * \pre += operator needs to be defined for type T.
 		 */
 		float infinity_norm() const;
+
+		/*! \brief frobenius norm
+		 *
+		 * Description: Two norm calculator for matrices.
+		 * \return returns the frobenius norm of the matrix as a float.
+		 * \pre * operator must be defined for type T.
+		 */
+		float frobenius() const;
 
 		// Mutators //
 
@@ -342,16 +350,6 @@ nTrix<T> operator*(const nTrix<T>& lhs, const float scalar);
  */
 template <typename T>
 nTrix<T> operator*(const nVect<T>& lhs, const nTrix<T>& rhs);
-
-/*! \brief frobenius norm
- *
- * Description: Two norm calculator for matrices.
- * \param rhs is the nTrix object to have its two norm calculated.
- * \return returns the frobenius norm of the matrix as a float.
- * \pre * operator must be defined for type T.
- */
-template <typename T>
-float frobenius(const nTrix<T>& rhs);
 
 /*! \brief recursive invert
  *
