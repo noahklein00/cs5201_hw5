@@ -1,0 +1,64 @@
+\hypertarget{classfilter}{}\section{filter$<$ T $>$ Class Template Reference}
+\label{classfilter}\index{filter$<$ T $>$@{filter$<$ T $>$}}
+
+
+filter class.  
+
+
+
+
+{\ttfamily \#include $<$filter.\+h$>$}
+
+
+
+Inheritance diagram for filter$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classfilter__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classfilter_ac8ec0fb4a10d10ee5e3133259610e0d2}{operator()} (\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&state)=0
+\begin{DoxyCompactList}\small\item\em () operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class filter$<$ T $>$}
+
+filter class. 
+
+This class is a base filter class that allows the user to specify derived filter classes with () functionality. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classfilter_ac8ec0fb4a10d10ee5e3133259610e0d2}\label{classfilter_ac8ec0fb4a10d10ee5e3133259610e0d2}} 
+\index{filter@{filter}!operator()@{operator()}}
+\index{operator()@{operator()}!filter@{filter}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+virtual \hyperlink{classnVect}{n\+Vect}$<$T$>$ \hyperlink{classfilter}{filter}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+() operator 
+
+Description\+: () operator overload for the filter base class. Allows the user to access the () operator functionality of a derived class through the base class. 
+\begin{DoxyParams}{Parameters}
+{\em state} & is a n\+Vect$<$\+T$>$ object that the filter takes in to filter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a n\+Vect$<$\+T$>$ which represents the filtered state. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classkalman_ae3c0c97ba8c3eb2eba0134a3adf701ed}{kalman$<$ T $>$}, \hyperlink{classlowPass_a4d4458814fd69f87c5622227f6527468}{low\+Pass$<$ T $>$}, and \hyperlink{classdummy_a437aae6ce48cad80944cb578aa0c0218}{dummy$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{filter_8h}{filter.\+h}\end{DoxyCompactItemize}

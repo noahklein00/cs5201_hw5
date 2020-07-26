@@ -1,0 +1,74 @@
+\hypertarget{classdummy}{}\section{dummy$<$ T $>$ Class Template Reference}
+\label{classdummy}\index{dummy$<$ T $>$@{dummy$<$ T $>$}}
+
+
+dummy class.  
+
+
+
+
+{\ttfamily \#include $<$dummy.\+h$>$}
+
+
+
+Inheritance diagram for dummy$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classdummy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dummy$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classdummy__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classdummy_a437aae6ce48cad80944cb578aa0c0218}{operator()} (\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&state)
+\begin{DoxyCompactList}\small\item\em () operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class dummy$<$ T $>$}
+
+dummy class. 
+
+This class is a derived filter class that acts as a passthrough of a state without actually filtering it. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdummy_a437aae6ce48cad80944cb578aa0c0218}\label{classdummy_a437aae6ce48cad80944cb578aa0c0218}} 
+\index{dummy@{dummy}!operator()@{operator()}}
+\index{operator()@{operator()}!dummy@{dummy}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classdummy}{dummy}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+() operator 
+
+Description\+: () operator overload that inherits from the base class to allow the user to pass a n\+Vect$<$\+T$>$ state through. 
+\begin{DoxyParams}{Parameters}
+{\em state} & is the state that the user wants to pass through unfiltered. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a new n\+Vect$<$\+T$>$ that has the same values as the parameter. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classfilter_ac8ec0fb4a10d10ee5e3133259610e0d2}{filter$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dummy_8h}{dummy.\+h}\item 
+dummy.\+hpp\end{DoxyCompactItemize}

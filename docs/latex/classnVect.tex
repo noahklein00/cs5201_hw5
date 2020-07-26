@@ -1,0 +1,692 @@
+\hypertarget{classnVect}{}\section{n\+Vect$<$ T $>$ Class Template Reference}
+\label{classnVect}\index{n\+Vect$<$ T $>$@{n\+Vect$<$ T $>$}}
+
+
+\hyperlink{classnVect}{n\+Vect} class.  
+
+
+
+
+{\ttfamily \#include $<$n\+Vect.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnVect_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em iterator class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnVect_abb7dc7935aeb2e8f6811b1f0e4c0fb40}{n\+Vect} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classnVect_a1b72b4f2c2ca8fadc844936ed6c82d5b}{n\+Vect} (const int \hyperlink{classnVect_a5cf871204b41c5cd97055b3c4ee9607c}{size})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classnVect_a8b77a6ebdc28746d61eebb7d8bbc0691}{n\+Vect} (const std\+::initializer\+\_\+list$<$ T $>$ \&list)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{classnVect_ad47ea98ac300eeaa3aab9322bfe20e76}{n\+Vect} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&cpy\+\_\+vec)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \& \hyperlink{classnVect_a47cd80bc62dec71439736d6f0218d57e}{operator=} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&cpy\+\_\+vec)
+\begin{DoxyCompactList}\small\item\em = operator \end{DoxyCompactList}\item 
+\hyperlink{classnVect_a7d537e5be0ce55f3ea40e43c54cdb9a7}{$\sim$n\+Vect} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \hyperlink{classnVect_aac4b9c9287c14f0957f46eec00f17e62}{push\+\_\+back} (const T \&item)
+\begin{DoxyCompactList}\small\item\em Adds an element to the back of the vector. \end{DoxyCompactList}\item 
+void \hyperlink{classnVect_a5d998eac73178b38c0e24a6aa29eacbb}{resize} (const int new\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Sets a new size for the vector. \end{DoxyCompactList}\item 
+void \hyperlink{classnVect_a58dcec4cc5ea9d8d18e03fb1671bee2b}{resize} (const int new\+\_\+size, const T \&filler)
+\begin{DoxyCompactList}\small\item\em Sets a new size for the vector and fills it. \end{DoxyCompactList}\item 
+void \hyperlink{classnVect_ad83c522fff7a545b02d20dbf2e99a4e7}{clear} ()
+\begin{DoxyCompactList}\small\item\em clears the object \end{DoxyCompactList}\item 
+T \& \hyperlink{classnVect_a3fb4c0900764f5b46c402639a1baf01f}{operator\mbox{[}$\,$\mbox{]}} (const int index)
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator reference \end{DoxyCompactList}\item 
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classnVect_a2941f0e337b1c7348e8b479539ea715c}{operator-\/} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item operator (binary) 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classnVect_a24677bbe43b1a1f5d77b36e7b96bcb98}{operator-\/} ()
+\begin{DoxyCompactList}\small\item\em unary minus \end{DoxyCompactList}\item 
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classnVect_a35964beca3a57fad4f69ddd6be16cc91}{apply} (T func(T)) const
+\begin{DoxyCompactList}\small\item\em apply function \end{DoxyCompactList}\item 
+T \& \hyperlink{classnVect_a4b757cc98836654ee2929197d40d9055}{get} (const int index)
+\begin{DoxyCompactList}\small\item\em get function \end{DoxyCompactList}\item 
+int \hyperlink{classnVect_a5cf871204b41c5cd97055b3c4ee9607c}{size} () const
+\begin{DoxyCompactList}\small\item\em size of the vector \end{DoxyCompactList}\item 
+const T \& \hyperlink{classnVect_a65b439185fd34563833ede9390612f1c}{operator\mbox{[}$\,$\mbox{]}} (const int index) const
+\begin{DoxyCompactList}\small\item\em \mbox{[}\mbox{]} operator const \end{DoxyCompactList}\item 
+T \hyperlink{classnVect_ac5933c6480457c627ca43a8b9d1cfbaf}{operator$\ast$} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&rhs) const
+\begin{DoxyCompactList}\small\item\em Vector multiplication. \end{DoxyCompactList}\item 
+double \hyperlink{classnVect_a32237bab9097b7b392c467a79d858d1a}{operator$^\wedge$} (const int norm) const
+\begin{DoxyCompactList}\small\item\em P-\/norm calculator. \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect_a0daf09e1f15ac627815d57f777ecc417}{begin} ()
+\begin{DoxyCompactList}\small\item\em starting iterator \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect_a44a13c3cb3ede92ae23298920b1d88bf}{end} ()
+\begin{DoxyCompactList}\small\item\em ending iterator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U $>$ }\\\hyperlink{classnVect}{n\+Vect}$<$ U $>$ \hyperlink{classnVect_a3ffde125079f1f4fdfc8e99d6a714439}{operator+} (const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&lhs, const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\hyperlink{classnVect}{n\+Vect}$<$ U $>$ \hyperlink{classnVect_a64c439aa3f26ec0fea5c63a6e52a1be2}{operator$\ast$} (const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&lhs, const U \&rhs)
+\begin{DoxyCompactList}\small\item\em Scalar multiplication. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\hyperlink{classnVect}{n\+Vect}$<$ U $>$ \hyperlink{classnVect_a9673bd479b1647b3f4ed8a68b1b793a9}{operator$\ast$} (const U \&lhs, const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Scalar multiplication. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\std\+::ostream \& \hyperlink{classnVect_a6b1efa03bac435bc6ce49d8de18ad3e5}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em $<$$<$ operator \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\std\+::istream \& \hyperlink{classnVect_ad614110b01ea7a7d8618a95d46186916}{operator$>$$>$} (std\+::istream \&in, const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em \begin{quote}
+\begin{quote}
+operator\end{quote}
+\end{quote}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class n\+Vect$<$ T $>$}
+
+\hyperlink{classnVect}{n\+Vect} class. 
+
+This class uses std\+::arrays to create a vector and dynamically allocate memory. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnVect_abb7dc7935aeb2e8f6811b1f0e4c0fb40}\label{classnVect_abb7dc7935aeb2e8f6811b1f0e4c0fb40}} 
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{n\+Vect()}{nVect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::\hyperlink{classnVect}{n\+Vect} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+Description\+: Creates an empty vector of type T, sets m\+\_\+size to 0 and m\+\_\+available to 10. \begin{DoxyPostcond}{Postcondition}
+A \hyperlink{classnVect}{n\+Vect} object is created with nothing stored and a maximum of 10 spaces available. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a1b72b4f2c2ca8fadc844936ed6c82d5b}\label{classnVect_a1b72b4f2c2ca8fadc844936ed6c82d5b}} 
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{n\+Vect()}{nVect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::\hyperlink{classnVect}{n\+Vect} (\begin{DoxyParamCaption}\item[{const int}]{size }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Description\+: Takes an integer size and initializes a \hyperlink{classnVect}{n\+Vect} with that size available. It initializes the space but fills it with nothing. 
+\begin{DoxyParams}{Parameters}
+{\em size} & is the integer size of the vector to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The array allocated is filled with zeroes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A \hyperlink{classnVect}{n\+Vect} object is created with zeroes stored and (size) elements available. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em throws} & a std\+::length\+\_\+error object if the size is negative. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classnVect_a8b77a6ebdc28746d61eebb7d8bbc0691}\label{classnVect_a8b77a6ebdc28746d61eebb7d8bbc0691}} 
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{n\+Vect()}{nVect()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::\hyperlink{classnVect}{n\+Vect} (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ T $>$ \&}]{list }\end{DoxyParamCaption})}
+
+
+
+constructor 
+
+Description\+: Constructs a \hyperlink{classnVect}{n\+Vect} object based off of the std\+::initializer\+\_\+list passed to it. 
+\begin{DoxyParams}{Parameters}
+{\em list} & is a std\+::initializer\+\_\+list that stores the elements to be stored in the \hyperlink{classnVect}{n\+Vect}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+A \hyperlink{classnVect}{n\+Vect} object is created with the data and size equal to the data and size of the std\+::initializer\+\_\+list. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_ad47ea98ac300eeaa3aab9322bfe20e76}\label{classnVect_ad47ea98ac300eeaa3aab9322bfe20e76}} 
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\index{n\+Vect@{n\+Vect}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{n\+Vect()}{nVect()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::\hyperlink{classnVect}{n\+Vect} (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{cpy\+\_\+vec }\end{DoxyParamCaption})}
+
+
+
+copy constructor 
+
+Description\+: Constructs a \hyperlink{classnVect}{n\+Vect} object with all member variables set equal to the \hyperlink{classnVect}{n\+Vect} passed. 
+\begin{DoxyParams}{Parameters}
+{\em cpy\+\_\+vec} & is a \hyperlink{classnVect}{n\+Vect} that has already been initialized with data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+The newly initialized \hyperlink{classnVect}{n\+Vect} is created and has all data set equal to the cpy\+\_\+vec passed. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a7d537e5be0ce55f3ea40e43c54cdb9a7}\label{classnVect_a7d537e5be0ce55f3ea40e43c54cdb9a7}} 
+\index{n\+Vect@{n\+Vect}!````~n\+Vect@{$\sim$n\+Vect}}
+\index{````~n\+Vect@{$\sim$n\+Vect}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{$\sim$n\+Vect()}{~nVect()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::$\sim$\hyperlink{classnVect}{n\+Vect} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructor 
+
+Description\+: Properly deallocates memory for the \hyperlink{classnVect}{n\+Vect} class. \begin{DoxyPostcond}{Postcondition}
+The calling object has its memory properly deallocated. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classnVect_a35964beca3a57fad4f69ddd6be16cc91}\label{classnVect_a35964beca3a57fad4f69ddd6be16cc91}} 
+\index{n\+Vect@{n\+Vect}!apply@{apply}}
+\index{apply@{apply}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::apply (\begin{DoxyParamCaption}\item[{T }]{funcT }\end{DoxyParamCaption}) const}
+
+
+
+apply function 
+
+Description\+: Allows the user to pass a function that takes a type T and returns a type T. apply applies the function to each container. 
+\begin{DoxyParams}{Parameters}
+{\em func} & is a function that takes a type T and returns a type T. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a new vector based off of the calling object with func applied to each container. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a0daf09e1f15ac627815d57f777ecc417}\label{classnVect_a0daf09e1f15ac627815d57f777ecc417}} 
+\index{n\+Vect@{n\+Vect}!begin@{begin}}
+\index{begin@{begin}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+starting iterator 
+
+Description\+: Returns an iterator pointing to the beginning of the \hyperlink{classnVect}{n\+Vect} object\textquotesingle{}s array. \begin{DoxyReturn}{Returns}
+Returns a new iterator object that points to the start of the \hyperlink{classnVect}{n\+Vect} array. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The first index in the vector that stores data needs to be m\+\_\+arr\mbox{[}0\mbox{]}. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{classnVect_ad83c522fff7a545b02d20dbf2e99a4e7}\label{classnVect_ad83c522fff7a545b02d20dbf2e99a4e7}} 
+\index{n\+Vect@{n\+Vect}!clear@{clear}}
+\index{clear@{clear}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clears the object 
+
+Description\+: wipes the objects, sets m\+\_\+size and m\+\_\+available to 0 and makes m\+\_\+arr N\+U\+LL. \begin{DoxyPostcond}{Postcondition}
+All data stored in the vector is deleted and all variables are set to a base state of 0/\+N\+U\+LL. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a44a13c3cb3ede92ae23298920b1d88bf}\label{classnVect_a44a13c3cb3ede92ae23298920b1d88bf}} 
+\index{n\+Vect@{n\+Vect}!end@{end}}
+\index{end@{end}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ending iterator 
+
+Description\+: Returns an iterator pointing to the ending of the \hyperlink{classnVect}{n\+Vect} object\textquotesingle{}s array. \begin{DoxyReturn}{Returns}
+Returns a new iterator object that points to the end of the \hyperlink{classnVect}{n\+Vect} array. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_a4b757cc98836654ee2929197d40d9055}\label{classnVect_a4b757cc98836654ee2929197d40d9055}} 
+\index{n\+Vect@{n\+Vect}!get@{get}}
+\index{get@{get}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::get (\begin{DoxyParamCaption}\item[{const int}]{index }\end{DoxyParamCaption})}
+
+
+
+get function 
+
+Description\+: Returns a reference to the data stored in the container at position index in the array. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index in the vector to be accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a reference to the element at the index in the vector. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= index $<$ m\+\_\+size 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error object if index is out of bounds. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classnVect_ac5933c6480457c627ca43a8b9d1cfbaf}\label{classnVect_ac5933c6480457c627ca43a8b9d1cfbaf}} 
+\index{n\+Vect@{n\+Vect}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption}) const}
+
+
+
+Vector multiplication. 
+
+Description\+: Calculates the dot product of the parameter and calling object vectors and returns the scalar. 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the vector to be dotted with the calling object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a scalar representing the dot product of the vectors. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$ and += operators need to be defined for type T. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{classnVect_a2941f0e337b1c7348e8b479539ea715c}\label{classnVect_a2941f0e337b1c7348e8b479539ea715c}} 
+\index{n\+Vect@{n\+Vect}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item operator (binary) 
+\end{DoxyItemize}
+
+Description\+: Used to subtract one vector from another. Allows for vectors of different (or similar) sizes to be added through vector subtraction. 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the vector to be subtracted from the calling object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where each container now holds the difference of the two vectors passed at that index. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+-\/= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a24677bbe43b1a1f5d77b36e7b96bcb98}\label{classnVect_a24677bbe43b1a1f5d77b36e7b96bcb98}} 
+\index{n\+Vect@{n\+Vect}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+unary minus 
+
+Description\+: Negates a calling vector. \begin{DoxyReturn}{Returns}
+Returns a newly created vector that is equal to the negative of the calling object. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a47cd80bc62dec71439736d6f0218d57e}\label{classnVect_a47cd80bc62dec71439736d6f0218d57e}} 
+\index{n\+Vect@{n\+Vect}!operator=@{operator=}}
+\index{operator=@{operator=}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{cpy\+\_\+vec }\end{DoxyParamCaption})}
+
+
+
+= operator 
+
+Description\+: Sets the calling object equal to the parameter. 
+\begin{DoxyParams}{Parameters}
+{\em cpy\+\_\+vec} & is a \hyperlink{classnVect}{n\+Vect} that has already been initialized with data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns a \hyperlink{classnVect}{n\+Vect} through $\ast$this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+operator = needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The calling object is set equal to the parameter. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a3fb4c0900764f5b46c402639a1baf01f}\label{classnVect_a3fb4c0900764f5b46c402639a1baf01f}} 
+\index{n\+Vect@{n\+Vect}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{index }\end{DoxyParamCaption})}
+
+
+
+\mbox{[}\mbox{]} operator reference 
+
+Description\+: Allows the user to access an index in the array. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the space in the vector to be accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the value at the index in the vector. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= index $<$ m\+\_\+size 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error object is the index is out of bounds. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classnVect_a65b439185fd34563833ede9390612f1c}\label{classnVect_a65b439185fd34563833ede9390612f1c}} 
+\index{n\+Vect@{n\+Vect}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const T \& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{[}\mbox{]} operator const 
+
+Description\+: Allows for safe accessing of the data at the certain index in the vector. 
+\begin{DoxyParams}{Parameters}
+{\em index} & is the index in the vector to be accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a const reference to the data stored at that index. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= index $<$ m\+\_\+size 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error if index is out of bounds. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classnVect_a32237bab9097b7b392c467a79d858d1a}\label{classnVect_a32237bab9097b7b392c467a79d858d1a}} 
+\index{n\+Vect@{n\+Vect}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator$^\wedge$()}{operator^()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::operator$^\wedge$ (\begin{DoxyParamCaption}\item[{const int}]{norm }\end{DoxyParamCaption}) const}
+
+
+
+P-\/norm calculator. 
+
+Description\+: Calculates the p-\/norm for a given \hyperlink{classnVect}{n\+Vect} object 
+\begin{DoxyParams}{Parameters}
+{\em norm} & is the p value for the p-\/norm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the p-\/norm that was calculated for the vector as a double object. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+operator += needs to be defined for type T. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{classnVect_aac4b9c9287c14f0957f46eec00f17e62}\label{classnVect_aac4b9c9287c14f0957f46eec00f17e62}} 
+\index{n\+Vect@{n\+Vect}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{const T \&}]{item }\end{DoxyParamCaption})}
+
+
+
+Adds an element to the back of the vector. 
+
+Description\+: Adds the parameter passed to the \char`\"{}back\char`\"{} of the calling \hyperlink{classnVect}{n\+Vect} object. This also increments the size and/or resizes the vector properly. 
+\begin{DoxyParams}{Parameters}
+{\em item} & is the object to be added to the back of the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+item is now stored at the \char`\"{}back\char`\"{} of the vector and the appropriate m\+\_\+size and m\+\_\+available are set. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a5d998eac73178b38c0e24a6aa29eacbb}\label{classnVect_a5d998eac73178b38c0e24a6aa29eacbb}} 
+\index{n\+Vect@{n\+Vect}!resize@{resize}}
+\index{resize@{resize}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::resize (\begin{DoxyParamCaption}\item[{const int}]{new\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Sets a new size for the vector. 
+
+Description\+: Allows the user to override the data stored in the vector to set their own size. 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+size} & should be an integer of 0 or greater. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+The calling object is resized appropriately and any data that was trashed is deallocated. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error object if new\+\_\+size is negative. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classnVect_a58dcec4cc5ea9d8d18e03fb1671bee2b}\label{classnVect_a58dcec4cc5ea9d8d18e03fb1671bee2b}} 
+\index{n\+Vect@{n\+Vect}!resize@{resize}}
+\index{resize@{resize}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+void \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::resize (\begin{DoxyParamCaption}\item[{const int}]{new\+\_\+size,  }\item[{const T \&}]{filler }\end{DoxyParamCaption})}
+
+
+
+Sets a new size for the vector and fills it. 
+
+Description\+: Allows the user to override the data stored in the vector to set their own size and fills any new containers created with the \char`\"{}filler\char`\"{} parameter. 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+size} & should be an integer of 0 or greater. \\
+\hline
+{\em filler} & can be any object of type T to fill the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+The calling object is resized appropriately, any data that was trashed is deallocated and any new containers are filled with the \char`\"{}filler\char`\"{} object. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error object if new\+\_\+size is negative. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classnVect_a5cf871204b41c5cd97055b3c4ee9607c}\label{classnVect_a5cf871204b41c5cd97055b3c4ee9607c}} 
+\index{n\+Vect@{n\+Vect}!size@{size}}
+\index{size@{size}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+size of the vector 
+
+Description\+: Returns the number of elements in the vector. \begin{DoxyReturn}{Returns}
+Returns an int equal to the size of the vector. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classnVect_a64c439aa3f26ec0fea5c63a6e52a1be2}\label{classnVect_a64c439aa3f26ec0fea5c63a6e52a1be2}} 
+\index{n\+Vect@{n\+Vect}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename U $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$U$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&}]{lhs,  }\item[{const U \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Scalar multiplication. 
+
+Description\+: Allows for scalar multiplication of a calling vector. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is the \hyperlink{classnVect}{n\+Vect} that the scalar will be multiplied on. \\
+\hline
+{\em rhs} & is a scalar of type T to be multiplied through the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where the data in each container has been multiplied by the scalar. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a9673bd479b1647b3f4ed8a68b1b793a9}\label{classnVect_a9673bd479b1647b3f4ed8a68b1b793a9}} 
+\index{n\+Vect@{n\+Vect}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename U $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$U$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const U \&}]{lhs,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Scalar multiplication. 
+
+Description\+: Allows for scalar multiplication of a calling vector. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is a scalar of type T to be multiplied through the vector. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} that the scalar will be multiplied on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where the data in each container has been multiplied by the scalar. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a3ffde125079f1f4fdfc8e99d6a714439}\label{classnVect_a3ffde125079f1f4fdfc8e99d6a714439}} 
+\index{n\+Vect@{n\+Vect}!operator+@{operator+}}
+\index{operator+@{operator+}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename U $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$U$>$ operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&}]{lhs,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}
+
+Description\+: Used to add two vectors together. Allows for vectors of different (or similar) sizes to be added through vector addition. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is the \hyperlink{classnVect}{n\+Vect} to be added to. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} to be added to the calling object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where each container now holds the sum of the two vectors passed at that index. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
++= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_a6b1efa03bac435bc6ce49d8de18ad3e5}\label{classnVect_a6b1efa03bac435bc6ce49d8de18ad3e5}} 
+\index{n\+Vect@{n\+Vect}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename U $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+$<$$<$ operator 
+
+Description\+: Allows for proper outputting of \hyperlink{classnVect}{n\+Vect} objects. 
+\begin{DoxyParams}{Parameters}
+{\em out} & is the ostream passed. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} to be output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the ostream 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$<$$<$ operator must be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the object to the stream. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classnVect_ad614110b01ea7a7d8618a95d46186916}\label{classnVect_ad614110b01ea7a7d8618a95d46186916}} 
+\index{n\+Vect@{n\+Vect}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!n\+Vect@{n\+Vect}}
+\subsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+template$<$typename U $>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ U $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\begin{quote}
+\begin{quote}
+operator\end{quote}
+\end{quote}
+
+
+Description\+: Allows the user to insert any amount of data into a \hyperlink{classnVect}{n\+Vect} object. 
+\begin{DoxyParams}{Parameters}
+{\em in} & is the istream passed. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} to store input. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the istream. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Inputted data is stored in the rhs \hyperlink{classnVect}{n\+Vect}. 
+\end{DoxyPostcond}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nVect_8h}{n\+Vect.\+h}\item 
+n\+Vect.\+hpp\end{DoxyCompactItemize}

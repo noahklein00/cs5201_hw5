@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://jberm6.git-pages.mst.edu/essman/homework/hw5/ -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Homework 5 - Matrices, Filters, and Guidance | CS 5201 - Josh Essman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Due on 2020-04-03">
+  <meta name="author" content="">
+  <meta content="index, follow" name="robots">
+  <meta name="generator" content="Hugo 0.69.2">
+  <link href="https://jberm6.git-pages.mst.edu/essman/index.xml" rel="alternate" type="application/rss+xml" title="CS 5201 - Josh Essman Feed">
+  <link rel="shortcut icon" href="https://jberm6.git-pages.mst.edu/essmanfavicon.ico" type="image/x-icon">
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/essman/style-compat.18854265a818d0eba8e44a33b636016343ee1980cb37565042864f57e53a611c.css" />
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/style.730b32910bfb669086b30a9d93000643f054cd3254e0fb3e53ac901d89098fa0.css">
+  <!--<![endif]-->
+  <script defer="" src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/script.9df38729991a6ec08d83b60514e841529cebd5ccc800cf8e1f98fb63e73aaa73.js.download"></script>
+  <script type="text/javascript" src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/MathJax.js.download">
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+  <div class="pure-u-22-24 pure-u-md-14-24">
+  
+<div class="navigation">
+  <div class="navigation-header clearfix">
+    <div class="pure-menu pure-menu-horizontal">
+      <a class="pure-menu-heading pure-menu-link" href="https://jberm6.git-pages.mst.edu/essman/">
+        CS 5201 - Josh Essman
+      </a>
+    </div>
+  </div>
+  <div class="navigation-content">
+    <div class="pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://jberm6.git-pages.mst.edu/essman/">Home</a>
+        </li>
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://jberm6.git-pages.mst.edu/essman/homework/">Homeworks</a>
+        </li>
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://jberm6.git-pages.mst.edu/essman/lectures/">Lectures</a>
+        </li>
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://jberm6.git-pages.mst.edu/essman/resource/">Resources</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  
+<div>
+  <div>
+    <h2 class="post-title">
+      
+      Homework 5 - Matrices, Filters, and Guidance
+    </h2>
+    
+
+  </div>
+  <div>
+    <h4 id="due-on-2020-04-03-at-class-time">Due on 2020-04-03 at class time</h4>
+<h3 id="purpose">Purpose</h3>
+<p>The purpose of this assignment is to apply an inheritance model to the problem
+of filtering and state estimation, and to investigate the numerical constraints
+of different filtering methods.  Specifically, you will use C++ to explore
+the following areas of interest:</p>
+<ul>
+<li>Matrix operations, e.g. inversion and multiplication</li>
+<li>Abstract classes/interfaces</li>
+<li>Inheritance and polymorphism</li>
+<li>Matrix representations of dynamic systems</li>
+<li>Templated functions and objects</li>
+<li>Interactions between objects of differing classes</li>
+</ul>
+<h3 id="background">Background</h3>
+<p>In the previous assignment you implemented a closed-loop control system, in which
+the control signal was dependent on the feedback from the model (the blood glucose
+concentration).  It was therefore assumed that the input to the controller
+exactly matched the state of the model.  Real-life implementations of control systems
+cannot safely make this assumption - they rely on sensors whose measurements are often
+imprecise.  In this assignment you will be responsible for implementing part of
+the control system used by the Apollo program to safely land astronauts on the moon.</p>
+<p>For purposes of simplicity, we will be focusing only on attitude control in two dimensions,
+i.e., the angle of the lunar lander with
+respect to the ground normal (the y-axis in a conventional coordinate system).</p>
+<p>Consider the following diagram:
+<img src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/lander.png" alt="lander" class="pure-img"></p>
+<p>Note the application of a force <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 0.896em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.784em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1000.78em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math-italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.114em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">F</script> (from a rocket thruster) perpendicular to the axis of rotation
+at a distance <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-4" style="width: 0.896em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.784em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1000.78em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Math-italic;">R</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">R</script> from the lander’s center of gravity.<br>
+We can then use equations from your Physics I course to solve for torque:
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;&amp;#x03C4;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-7" style="width: 5.137em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.579em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1004.58em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-8"><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math-italic;">τ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span class="mo" id="MathJax-Span-10" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math-italic; padding-left: 0.282em;">R</span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main; padding-left: 0.226em;">×</span><span class="mi" id="MathJax-Span-13" style="font-family: MathJax_Math-italic; padding-left: 0.226em;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.114em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>τ</mi><mo>=</mo><mi>R</mi><mo>×</mo><mi>F</mi></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-3"> \tau = R \times F </script>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-14" style="width: 0.896em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.784em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1000.78em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-15"><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math-italic;">R</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">R</script> and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-17" style="width: 0.896em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.784em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1000.78em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-18"><span class="mi" id="MathJax-Span-19" style="font-family: MathJax_Math-italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.114em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></span></span><script type="math/tex" id="MathJax-Element-5">F</script> are perpendicular so their cross product is simply their product:
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;&amp;#x03C4;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-20" style="width: 3.742em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.351em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1003.35em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-21"><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math-italic;">τ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span class="mo" id="MathJax-Span-23" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mi" id="MathJax-Span-24" style="font-family: MathJax_Math-italic; padding-left: 0.282em;">R</span><span class="mi" id="MathJax-Span-25" style="font-family: MathJax_Math-italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.114em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>τ</mi><mo>=</mo><mi>R</mi><mi>F</mi></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-6"> \tau = RF </script>
+We can then solve for angular acceleration, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-26" style="width: 0.728em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.617em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.789em, 1000.56em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-27"><span class="mi" id="MathJax-Span-28" style="font-family: MathJax_Math-italic;">α</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></span></span><script type="math/tex" id="MathJax-Element-7">\alpha</script>:
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;&amp;#x03C4;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-29" style="width: 3.351em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.96em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1002.9em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-30"><span class="mi" id="MathJax-Span-31" style="font-family: MathJax_Math-italic;">τ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span class="mo" id="MathJax-Span-32" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mi" id="MathJax-Span-33" style="font-family: MathJax_Math-italic; padding-left: 0.282em;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span class="mi" id="MathJax-Span-34" style="font-family: MathJax_Math-italic;">α</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>τ</mi><mo>=</mo><mi>I</mi><mi>α</mi></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-8"> \tau = I \alpha </script>
+Rearranging terms:
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mi&gt;&amp;#x03C4;&lt;/mi&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-35" style="width: 3.184em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.849em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.119em, 1002.85em, 3.239em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-36"><span class="mi" id="MathJax-Span-37" style="font-family: MathJax_Math-italic;">α</span><span class="mo" id="MathJax-Span-38" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mfrac" id="MathJax-Span-39" style="padding-left: 0.282em;"><span style="display: inline-block; position: relative; width: 0.617em; height: 0px; margin-right: 0.114em; margin-left: 0.114em;"><span style="position: absolute; clip: rect(3.407em, 1000.5em, 4.188em, -999.997em); top: -4.685em; left: 50%; margin-left: -0.276em;"><span class="mi" id="MathJax-Span-40" style="font-family: MathJax_Math-italic;">τ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; clip: rect(3.184em, 1000.5em, 4.188em, -999.997em); top: -3.345em; left: 50%; margin-left: -0.276em;"><span class="mi" id="MathJax-Span-41" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; clip: rect(0.84em, 1000.62em, 1.23em, -999.997em); top: -1.281em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 0.617em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.063em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.809em; border-left: 0px solid; width: 0px; height: 2.128em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>α</mi><mo>=</mo><mfrac><mi>τ</mi><mi>I</mi></mfrac></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-9"> \alpha = \frac{\tau}{I} </script>
+We can then substitute our value of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03C4;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-42" style="width: 0.561em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.505em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.789em, 1000.5em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-43"><span class="mi" id="MathJax-Span-44" style="font-family: MathJax_Math-italic;">τ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi></math></span></span><script type="math/tex" id="MathJax-Element-10">\tau</script>:
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/mrow&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-45" style="width: 4.355em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.853em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(0.896em, 1003.85em, 3.239em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-46"><span class="mi" id="MathJax-Span-47" style="font-family: MathJax_Math-italic;">α</span><span class="mo" id="MathJax-Span-48" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mfrac" id="MathJax-Span-49" style="padding-left: 0.282em;"><span style="display: inline-block; position: relative; width: 1.621em; height: 0px; margin-right: 0.114em; margin-left: 0.114em;"><span style="position: absolute; clip: rect(3.184em, 1001.51em, 4.188em, -999.997em); top: -4.685em; left: 50%; margin-left: -0.778em;"><span class="mrow" id="MathJax-Span-50"><span class="mi" id="MathJax-Span-51" style="font-family: MathJax_Math-italic;">R</span><span class="mi" id="MathJax-Span-52" style="font-family: MathJax_Math-italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.114em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; clip: rect(3.184em, 1000.5em, 4.188em, -999.997em); top: -3.345em; left: 50%; margin-left: -0.276em;"><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; clip: rect(0.84em, 1001.62em, 1.23em, -999.997em); top: -1.281em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 1.621em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.063em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.809em; border-left: 0px solid; width: 0px; height: 2.441em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>α</mi><mo>=</mo><mfrac><mrow><mi>R</mi><mi>F</mi></mrow><mi>I</mi></mfrac></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-11"> \alpha = \frac{RF}{I} </script></p>
+<p>The state of the system is represented by <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-54" style="width: 0.728em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.617em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.789em, 1000.56em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-55"><span class="mi" id="MathJax-Span-56" style="font-family: MathJax_Math-italic;">α</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></span></span><script type="math/tex" id="MathJax-Element-12">\alpha</script> and its single and double integrals
+with respect to time, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03C9;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-57" style="width: 0.728em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.617em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.789em, 1000.62em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-58"><span class="mi" id="MathJax-Span-59" style="font-family: MathJax_Math-italic;">ω</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ω</mi></math></span></span><script type="math/tex" id="MathJax-Element-13">\omega</script> and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B8;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-60" style="width: 0.505em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.449em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.509em, 1000.45em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-61"><span class="mi" id="MathJax-Span-62" style="font-family: MathJax_Math-italic;">θ</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>θ</mi></math></span></span><script type="math/tex" id="MathJax-Element-14">\theta</script>, which correspond to angular velocity and angle, respectively.</p>
+<p>As with the previous assignment, you will use a PID controller - this time to control
+the thruster force <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-63" style="width: 0.896em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.784em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1000.78em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-64"><span class="mi" id="MathJax-Span-65" style="font-family: MathJax_Math-italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.114em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></span></span><script type="math/tex" id="MathJax-Element-15">F</script> to reach a desired value of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B8;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-66" style="width: 0.505em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.449em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.509em, 1000.45em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-67"><span class="mi" id="MathJax-Span-68" style="font-family: MathJax_Math-italic;">θ</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>θ</mi></math></span></span><script type="math/tex" id="MathJax-Element-16">\theta</script>.</p>
+<p>But a PID controller alone is not sufficient in this case - the sensors used
+to measure state, as with any real-world sensors, are prone to noise.
+Note the noise observed by the gyroscopes on the actual Apollo 8 mission:
+<img src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/gyro_drift.png" alt="gyro drift" class="pure-img"></p>
+<p>To effectively control a system with noisy measurements, the noise must
+be <em>filtered</em> out.  You will use inheritance and polymorphism to implement an
+<em>interface base class</em> and subsequently several derived classes, that represent the
+types of filters discussed in class, namely:</p>
+<ul>
+<li>a dummy filter (which is just a pass-through)</li>
+<li>the single-pole low-pass filter (exponential moving average)</li>
+<li>the Kalman filter</li>
+</ul>
+<p>You will also implement a <em>combination filter</em> that allows for encapsulating and
+chaining multiple filters.  This filter should accept an arbitrary number of
+filters (using a data structure of your choice)
+and should filter a noisy input by sequentially applying these filters.
+For an example, see the driver instructions.</p>
+<p>The full system is represented by the following block diagram:
+<img src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/lunar_block.png" alt="block diag" class="pure-img"></p>
+<h4 id="additional-background-information">Additional Background Information</h4>
+<p>The Kalman filter’s first application was to remove noise from Apollo Lunar Module
+sensor data and thus to improve the accuracy of the guidance logic.  You will apply
+your filters to a simplified version of this problem.  You can read more about
+the Kalman filter’s introduction in this <a href="https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf">NASA paper</a>,
+or read through the <a href="https://github.com/chrislgarry/Apollo-11/blob/master/Luminary099/KALMAN_FILTER.agc">source code</a>
+(written in AGC assembly), but I don’t think you’ll find it particularly helpful for this assignment.</p>
+<h3 id="program-specification">Program Specification</h3>
+<p>It is recommended that you start by implementing your matrix class,
+then your model class (which should be similar to previous assignments),
+and finally your “real” filter classes.</p>
+<p>In addition to the three filters described above,
+you will implement a dummy filter that returns the noisy measurements without
+changing them so that you can test your model, and
+later to evaluate the performance of your real filters.</p>
+<p>Your lunar lander class must implement the following:</p>
+<ul>
+<li>Appropriate constructors/destructors/copy functionality</li>
+<li>Function evaluation operator <code>()</code> that “steps” the model, calculating a new state given the thruster force input</li>
+<li>A means of writing the current state of the model
+to a <code>std::ostream</code> (stream operator), using the format <code>Alpha: &lt;alpha&gt;, Omega: &lt;omega&gt;, Theta: &lt;theta&gt;</code></li>
+<li>A means of interacting with a PID controller to send the current state and
+receive the thruster force</li>
+<li>A means of using any filter derived from your filter interface base to
+filter the “measured” state prior to sending it to the controller</li>
+</ul>
+<p>Since there are no real sensors involved with this model,
+you should also add Gaussian noise to the calculated state
+before sending it to the filter. You should use the utilities available in the
+C++ standard library to add noise in the range between zero and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-17-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x00B1;&lt;/mo&gt;&lt;mn&gt;25&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-69" style="width: 2.012em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.789em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1001.73em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-70"><span class="mo" id="MathJax-Span-71" style="font-family: MathJax_Main;">±</span><span class="mn" id="MathJax-Span-72" style="font-family: MathJax_Main;">25</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>±</mo><mn>25</mn></math></span></span><script type="math/tex" id="MathJax-Element-17">\pm 25</script> percent relative to
+each element of your raw (not-noisy) state.</p>
+<p>You will also use matrices for your filter implementations, in particular the
+Kalman filter.
+Your matrix class, which should be templated to allow
+for matrices of any appropriate type, should include the following:</p>
+<ul>
+<li>A constructor accepting a two-dimensional <code>std::initializer_list</code></li>
+<li>Appropriate constructors/destructors/copy functionality</li>
+<li>Copy constructor/copy assignment operations</li>
+<li>Element access with the <code>[]</code> operator (optional)</li>
+<li>Element access with the <code>()</code> operator (required), such that <code>matrix(i,j)</code> can
+be used to access the element in row <code>i</code> and column <code>j</code></li>
+<li>A means of determining the number of rows and columns with <code>rows()</code> and <code>cols()</code> functions, respectively</li>
+<li>Matrix addition, matrix subtraction, matrix multiplication, scalar multiplication, and matrix-by-vector multiplication</li>
+<li>Unary minus</li>
+<li>Inversion via the Newton-Schulz method discussed in class with an <code>invert</code> function</li>
+<li>Stream operators for input/output of matrix data - as with your vector, you should
+be able to read in an arbitrarily-sized matrix from an <code>istream</code>, in which rows are delimited by newlines
+and columns are delimited by spaces, and output should be in the same format (the final row should not have a trailing newline)</li>
+</ul>
+<p>As with your vector class, all matrix arithmetic-related operations should return a new matrix.
+Your matrix class should also not use <code>std::vector</code> or <code>std::valarray</code>.</p>
+<p>You will also use inheritance to model the relationships between different types
+of filters, all of which do the same thing (filter a noisy signal), but have very
+different implementations.  The core requirements for your filters are as follows:</p>
+<ul>
+<li>overload of function evaluation operator <code>()</code> to return a filtered signal given
+a noisy signal (system state), and any other parameters you deem necessary
+As with previous assignments, your filters must be templated on the type used to
+represent the state that is being estimated.  You should assume that the state
+can always be represented by an instance of your vector class, but that the thing
+stored inside the vector may change.  That is, if your filter is templated on <code>T</code>, it
+means that your state can be represented by a <code>yourVectorClass&lt;T&gt;</code>.</li>
+</ul>
+<p>Your filters should be configurable.  That is, hardcode as little as possible.
+For maximum utility your filters should be adaptable to problems other than the
+one presented in this assignment.  For example, the state transition matrices
+within your Kalman filter should not be hardcoded.</p>
+<p>Some hints with regard to your Kalman filter implementation:</p>
+<ul>
+<li>Recall that the measurements from the system (e.g. the current angle of the lunar lander)
+are also the state of the system</li>
+<li>You may assume that <em>process error</em> is zero, because the equations used to model state transitions perfectly characterize the system</li>
+<li>You should experiment with different values of <em>measurement error</em>,
+but start off with the identity matrix multiplied by a scalar value in the range <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-18-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;0.1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;0.5&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-73" style="width: 4.244em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.797em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.509em, 1003.69em, 2.793em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-74"><span class="mo" id="MathJax-Span-75" style="font-family: MathJax_Main;">(</span><span class="mn" id="MathJax-Span-76" style="font-family: MathJax_Main;">0.1</span><span class="mo" id="MathJax-Span-77" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-78" style="font-family: MathJax_Main; padding-left: 0.17em;">0.5</span><span class="mo" id="MathJax-Span-79" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>0.1</mn><mo>,</mo><mn>0.5</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-18">(0.1, 0.5)</script></li>
+</ul>
+<p>The internal implementation of the filters will differ significantly, but
+you should make an effort to make as much of the external interface purely virtual
+as possible, i.e. part of your filter abstract class.</p>
+<p>You should also pay attention to the performance of your filters.  Some of the
+mathematical operations required are computationally expensive, and as a result
+you should ensure that these operations are optimized where possible and not performed
+unnecessarily.</p>
+<p>As always, you are expected to follow the <a href="https://jberm6.git-pages.mst.edu/essman/homework/guidelines/">assignment guidelines</a>.</p>
+<h4 id="driver-information">Driver Information</h4>
+<p>You should initialize four filters:</p>
+<ul>
+<li>a dummy filter that just acts as a pass-through for the noisy state measurements</li>
+<li>a low-pass filter using a time step of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-19-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0.1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-80" style="width: 1.454em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1001.23em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-81"><span class="mn" id="MathJax-Span-82" style="font-family: MathJax_Main;">0.1</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.1</mn></math></span></span><script type="math/tex" id="MathJax-Element-19">0.1</script> seconds and a cutoff frequency of 10 Hz - note that since the cutoff frequency
+is very low then the more exact formula for <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-20-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-83" style="width: 0.728em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.617em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.789em, 1000.56em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-84"><span class="mi" id="MathJax-Span-85" style="font-family: MathJax_Math-italic;">α</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.628em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></span></span><script type="math/tex" id="MathJax-Element-20">\alpha</script> must be used, namely, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-21-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-86" style="width: 6.755em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.03em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.398em, 1006.03em, 2.626em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-87"><span class="mi" id="MathJax-Span-88" style="font-family: MathJax_Math-italic;">α</span><span class="mo" id="MathJax-Span-89" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-90" style="font-family: MathJax_Main; padding-left: 0.282em;">1</span><span class="mo" id="MathJax-Span-91" style="font-family: MathJax_Main; padding-left: 0.226em;">−</span><span class="msubsup" id="MathJax-Span-92" style="padding-left: 0.226em;"><span style="display: inline-block; position: relative; width: 2.291em; height: 0px;"><span style="position: absolute; clip: rect(3.407em, 1000.45em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-93" style="font-family: MathJax_Math-italic;">e</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -4.406em; left: 0.449em;"><span class="texatom" id="MathJax-Span-94"><span class="mrow" id="MathJax-Span-95"><span class="mo" id="MathJax-Span-96" style="font-size: 70.7%; font-family: MathJax_Main;">−</span><span class="mi" id="MathJax-Span-97" style="font-size: 70.7%; font-family: MathJax_Math-italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span class="mo" id="MathJax-Span-98" style="font-size: 70.7%; font-family: MathJax_Main;">⋅</span><span class="mi" id="MathJax-Span-99" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-100" style="font-size: 70.7%; font-family: MathJax_Math-italic;">t</span></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.122em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow class="MJX-TeXAtom-ORD"><mo>−</mo><mi>f</mi><mo>⋅</mo><mi>d</mi><mi>t</mi></mrow></msup></math></span></span><script type="math/tex" id="MathJax-Element-21">\alpha = 1 - e^{-f \cdot dt}</script></li>
+<li>a Kalman filter using appropriate matrices that represent the system dynamics presented above</li>
+<li>a combination filter that encapsulates a single LP filter
+(with the same step/cutoff as the LP filter above) and a single Kalman filter, such
+that the input signal is low-pass filtered before it is processed by the Kalman filter</li>
+</ul>
+<p>You should then use these filters to initialize four models of the lunar lander
+control subsystem.</p>
+<ul>
+<li>The dynamics models and controllers should use a time step of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-22-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0.1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-101" style="width: 1.454em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1001.23em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-102"><span class="mn" id="MathJax-Span-103" style="font-family: MathJax_Main;">0.1</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.1</mn></math></span></span><script type="math/tex" id="MathJax-Element-22">0.1</script> seconds (to match the low-pass filter)</li>
+<li>The controller should use a set point of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-23-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mfrac&gt;&lt;mi&gt;&amp;#x03C0;&lt;/mi&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;/mfrac&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-104" style="width: 0.84em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.728em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.509em, 1000.73em, 2.96em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-105"><span class="mfrac" id="MathJax-Span-106"><span style="display: inline-block; position: relative; width: 0.505em; height: 0px; margin-right: 0.114em; margin-left: 0.114em;"><span style="position: absolute; clip: rect(3.574em, 1000.39em, 4.188em, -999.997em); top: -4.461em; left: 50%; margin-left: -0.22em;"><span class="mi" id="MathJax-Span-107" style="font-size: 70.7%; font-family: MathJax_Math-italic;">π<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; clip: rect(3.407em, 1000.34em, 4.188em, -999.997em); top: -3.624em; left: 50%; margin-left: -0.165em;"><span class="mn" id="MathJax-Span-108" style="font-size: 70.7%; font-family: MathJax_Main;">8</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; clip: rect(0.84em, 1000.5em, 1.23em, -999.997em); top: -1.281em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 0.505em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.063em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.497em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>π</mi><mn>8</mn></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-23">\frac{\pi}{8}</script> radians</li>
+<li>The initial state should be <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-24-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B1;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-109" style="width: 2.849em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.514em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1002.46em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-110"><span class="mi" id="MathJax-Span-111" style="font-family: MathJax_Math-italic;">α</span><span class="mo" id="MathJax-Span-112" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-113" style="font-family: MathJax_Main; padding-left: 0.282em;">0</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi><mo>=</mo><mn>0</mn></math></span></span><script type="math/tex" id="MathJax-Element-24">\alpha = 0</script>, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-25-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03C9;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-114" style="width: 2.793em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.458em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1002.4em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-115"><span class="mi" id="MathJax-Span-116" style="font-family: MathJax_Math-italic;">ω</span><span class="mo" id="MathJax-Span-117" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-118" style="font-family: MathJax_Main; padding-left: 0.282em;">0</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ω</mi><mo>=</mo><mn>0</mn></math></span></span><script type="math/tex" id="MathJax-Element-25">\omega = 0</script>, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-26-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B8;&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-119" style="width: 2.57em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.291em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.509em, 1002.24em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-120"><span class="mi" id="MathJax-Span-121" style="font-family: MathJax_Math-italic;">θ</span><span class="mo" id="MathJax-Span-122" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-123" style="font-family: MathJax_Main; padding-left: 0.282em;">0</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>θ</mi><mo>=</mo><mn>0</mn></math></span></span><script type="math/tex" id="MathJax-Element-26">\theta = 0</script></li>
+<li>Using the notation from the dynamics equations above, set <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-27-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-124" style="width: 3.909em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.463em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1003.46em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-125"><span class="mi" id="MathJax-Span-126" style="font-family: MathJax_Math-italic;">R</span><span class="mo" id="MathJax-Span-127" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-128" style="font-family: MathJax_Main; padding-left: 0.282em;">4</span><span class="mi" id="MathJax-Span-129" style="font-family: MathJax_Math-italic;">m</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi><mo>=</mo><mn>4</mn><mi>m</mi></math></span></span><script type="math/tex" id="MathJax-Element-27">R = 4 m</script> and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-28-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;100000&lt;/mn&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mo&gt;&amp;#x22C5;&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-130" style="width: 8.82em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.871em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.398em, 1007.87em, 2.793em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-131"><span class="mi" id="MathJax-Span-132" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span class="mo" id="MathJax-Span-133" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-134" style="font-family: MathJax_Main; padding-left: 0.282em;">100000</span><span class="mi" id="MathJax-Span-135" style="font-family: MathJax_Math-italic;">k</span><span class="mi" id="MathJax-Span-136" style="font-family: MathJax_Math-italic;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-137" style="font-family: MathJax_Main; padding-left: 0.226em;">⋅</span><span class="msubsup" id="MathJax-Span-138" style="padding-left: 0.226em;"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px;"><span style="position: absolute; clip: rect(3.407em, 1000.84em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-139" style="font-family: MathJax_Math-italic;">m</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -4.406em; left: 0.896em;"><span class="mn" id="MathJax-Span-140" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.316em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>I</mi><mo>=</mo><mn>100000</mn><mi>k</mi><mi>g</mi><mo>⋅</mo><msup><mi>m</mi><mn>2</mn></msup></math></span></span><script type="math/tex" id="MathJax-Element-28">I = 100000 kg \cdot m^2</script></li>
+<li>For your PID controller, try values of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-29-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;K&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-141" style="width: 1.454em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1001.29em, 2.849em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-142"><span class="msubsup" id="MathJax-Span-143"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px;"><span style="position: absolute; clip: rect(3.184em, 1000.9em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-144" style="font-family: MathJax_Math-italic;">K<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -3.848em; left: 0.84em;"><span class="mi" id="MathJax-Span-145" style="font-size: 70.7%; font-family: MathJax_Math-italic;">p</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>K</mi><mi>p</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-29">K_p</script> and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-30-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;K&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-146" style="width: 1.454em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1001.29em, 2.737em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-147"><span class="msubsup" id="MathJax-Span-148"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px;"><span style="position: absolute; clip: rect(3.184em, 1000.9em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-149" style="font-family: MathJax_Math-italic;">K<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -3.848em; left: 0.84em;"><span class="mi" id="MathJax-Span-150" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>K</mi><mi>d</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-30">K_d</script> in the 4-digit range (thousands), where <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-31-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;K&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;K&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-151" style="width: 4.411em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.909em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1003.91em, 2.849em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-152"><span class="msubsup" id="MathJax-Span-153"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px;"><span style="position: absolute; clip: rect(3.184em, 1000.9em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-154" style="font-family: MathJax_Math-italic;">K<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -3.848em; left: 0.84em;"><span class="mi" id="MathJax-Span-155" style="font-size: 70.7%; font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span><span class="mo" id="MathJax-Span-156" style="font-family: MathJax_Main; padding-left: 0.282em;">&gt;</span><span class="msubsup" id="MathJax-Span-157" style="padding-left: 0.282em;"><span style="display: inline-block; position: relative; width: 1.286em; height: 0px;"><span style="position: absolute; clip: rect(3.184em, 1000.9em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-158" style="font-family: MathJax_Math-italic;">K<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.059em;"></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -3.848em; left: 0.84em;"><span class="mi" id="MathJax-Span-159" style="font-size: 70.7%; font-family: MathJax_Math-italic;">p</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>K</mi><mi>d</mi></msub><mo>&gt;</mo><msub><mi>K</mi><mi>p</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-31">K_d > K_p</script></li>
+<li>Run the simulation for a total of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-32-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;200&lt;/mn&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-160" style="width: 5.751em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.137em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.565em, 1005.08em, 2.737em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-161"><span class="msubsup" id="MathJax-Span-162"><span style="display: inline-block; position: relative; width: 1.844em; height: 0px;"><span style="position: absolute; clip: rect(3.239em, 1000.34em, 4.188em, -999.997em); top: -4.015em; left: 0em;"><span class="mi" id="MathJax-Span-163" style="font-family: MathJax_Math-italic;">t</span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span><span style="position: absolute; top: -3.848em; left: 0.338em;"><span class="texatom" id="MathJax-Span-164"><span class="mrow" id="MathJax-Span-165"><span class="mi" id="MathJax-Span-166" style="font-size: 70.7%; font-family: MathJax_Math-italic;">m</span><span class="mi" id="MathJax-Span-167" style="font-size: 70.7%; font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-168" style="font-size: 70.7%; font-family: MathJax_Math-italic;">x</span></span></span><span style="display: inline-block; width: 0px; height: 4.021em;"></span></span></span></span><span class="mo" id="MathJax-Span-169" style="font-family: MathJax_Main; padding-left: 0.282em;">=</span><span class="mn" id="MathJax-Span-170" style="font-family: MathJax_Main; padding-left: 0.282em;">200</span><span class="mi" id="MathJax-Span-171" style="font-family: MathJax_Math-italic;">s</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>t</mi><mrow class="MJX-TeXAtom-ORD"><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>=</mo><mn>200</mn><mi>s</mi></math></span></span><script type="math/tex" id="MathJax-Element-32">t_{max} = 200 s</script></li>
+<li>For each step, print <em>only</em> the values of <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-33-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x03B8;&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-172" style="width: 0.505em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.449em; height: 0px; font-size: 112%;"><span style="position: absolute; clip: rect(1.509em, 1000.45em, 2.57em, -999.997em); top: -2.397em; left: 0em;"><span class="mrow" id="MathJax-Span-173"><span class="mi" id="MathJax-Span-174" style="font-family: MathJax_Math-italic;">θ</span></span><span style="display: inline-block; width: 0px; height: 2.402em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>θ</mi></math></span></span><script type="math/tex" id="MathJax-Element-33">\theta</script> for each of the four models to <code>stdout</code>, separated by spaces, and in the
+order that they are described above.</li>
+</ul>
+<h3 id="deliverables">Deliverables</h3>
+<ul>
+<li>Code for the matrix, filters, lunar lander model, and the driver described above should be submitted to your assigned GitLab repository</li>
+<li>A <code>Makefile</code> should also be included that builds your class/driver into a Linux-compatible executable called <code>hw5.out</code></li>
+<li>A UML class diagram should be submitted in your Git repository - it should be named either <code>uml.png</code> or <code>uml.pdf</code></li>
+</ul>
+<h3 id="rubric">Rubric</h3>
+<table class="pure-table">
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Makefile</strong> - must build executable, clean up after itself, etc</td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>UML Diagram</strong> - should be accurate, clear, and use correct notation</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>Code Structure</strong> - should match the standard, be readable, and use appropriate structure</td>
+<td>20</td>
+</tr>
+<tr>
+<td><strong>Program</strong> - should be memory-safe, implement the requested driver, conform to requirements, and pass all tests</td>
+<td>65</td>
+</tr>
+<tr>
+<td><em>Total</em></td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</div>
+  <div class="footer">
+  <div class="pure-menu pure-menu-horizontal">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item" title="RSS Feed">
+        <a href="https://jberm6.git-pages.mst.edu/essman/index.xml" class="pure-menu-link">RSS</a>
+      </li>
+      <li class="pure-menu-item fix-cursor-pointer" title="Go to top">
+        <a class="pure-menu-link" id="btn-gototop">
+          <span class="fix-placement-up">⇧︎</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript" src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/MathJax.js.download">
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+
+
+
+  </div>
+  <div class="pure-u-1-24 pure-u-md-5-24"></div>
+</div>
+
+<script type="text/javascript" src="./Homework 5 - Matrices, Filters, and Guidance _ CS 5201 - Josh Essman_files/MathJax.js.download">
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;"></div></div></body></html>

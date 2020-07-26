@@ -1,0 +1,108 @@
+\hypertarget{classlowPass}{}\section{low\+Pass$<$ T $>$ Class Template Reference}
+\label{classlowPass}\index{low\+Pass$<$ T $>$@{low\+Pass$<$ T $>$}}
+
+
+\hyperlink{classlowPass}{low\+Pass} class.  
+
+
+
+
+{\ttfamily \#include $<$low\+Pass.\+h$>$}
+
+
+
+Inheritance diagram for low\+Pass$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classlowPass__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for low\+Pass$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classlowPass__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classlowPass_a50525f73036e6c40d03be1becbfa0068}{low\+Pass} (const float step\+Size, const float f, const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ i\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classlowPass_a4d4458814fd69f87c5622227f6527468}{operator()} (\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&state)
+\begin{DoxyCompactList}\small\item\em () operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class low\+Pass$<$ T $>$}
+
+\hyperlink{classlowPass}{low\+Pass} class. 
+
+This class acts as a \hyperlink{classlowPass}{low\+Pass} filter derived from the filter base class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlowPass_a50525f73036e6c40d03be1becbfa0068}\label{classlowPass_a50525f73036e6c40d03be1becbfa0068}} 
+\index{low\+Pass@{low\+Pass}!low\+Pass@{low\+Pass}}
+\index{low\+Pass@{low\+Pass}!low\+Pass@{low\+Pass}}
+\subsubsection{\texorpdfstring{low\+Pass()}{lowPass()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classlowPass}{low\+Pass}$<$ T $>$\+::\hyperlink{classlowPass}{low\+Pass} (\begin{DoxyParamCaption}\item[{const float}]{step\+Size,  }\item[{const float}]{f,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$}]{i\+\_\+state }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Description\+: Parameterized constructor for the \hyperlink{classlowPass}{low\+Pass} derived filter class. This constructor uses the step\+Size and f parameters to perform the more accurate calculation of alpha for the \hyperlink{classlowPass}{low\+Pass} filter method. 
+\begin{DoxyParams}{Parameters}
+{\em step\+Size} & is the change in time for each increment of the \hyperlink{classlowPass}{low\+Pass} filter iteration. \\
+\hline
+{\em f} & is the frequency for each increment of the \hyperlink{classlowPass}{low\+Pass} filter iteration. \\
+\hline
+{\em i\+\_\+state} & is the initial state of the system. This assumes that the state can always be represented as a vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Initializes a \hyperlink{classlowPass}{low\+Pass} filter with an alpha value and initial state that filters a noisy signal for a given state. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classlowPass_a4d4458814fd69f87c5622227f6527468}\label{classlowPass_a4d4458814fd69f87c5622227f6527468}} 
+\index{low\+Pass@{low\+Pass}!operator()@{operator()}}
+\index{operator()@{operator()}!low\+Pass@{low\+Pass}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{classlowPass}{low\+Pass}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+() operator 
+
+Description\+: () operator overload for the \hyperlink{classlowPass}{low\+Pass} derived filter that takes a new state and weights that against the previous states to create a weighted average of the weighted average. 
+\begin{DoxyParams}{Parameters}
+{\em state} & is the current state of the system to be weighted against the current stored state m\+\_\+prev\+\_\+state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new weighted current state. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$ and + operators must be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The previous state is updated with the proper weights of the previous and current states. 
+\end{DoxyPostcond}
+
+
+Implements \hyperlink{classfilter_ac8ec0fb4a10d10ee5e3133259610e0d2}{filter$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lowPass_8h}{low\+Pass.\+h}\item 
+low\+Pass.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,56 @@
+\hypertarget{lander_8h}{}\section{lander.\+h File Reference}
+\label{lander_8h}\index{lander.\+h@{lander.\+h}}
+{\ttfamily \#include \char`\"{}n\+Vect.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}P\+I\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lander.\+hpp\char`\"{}}\newline
+Include dependency graph for lander.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lander_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classlander}{lander}
+\begin{DoxyCompactList}\small\item\em lander class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \hyperlink{lander_8h_ab6f8c74d299fffd0364da0d38b9a8509}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classlander}{lander} \&rhs)
+\begin{DoxyCompactList}\small\item\em $<$$<$ operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions for the lander class. ~\newline
+Programmer\+: Noah Klein ~\newline
+Class\+: C\+S5201 ~\newline
+Assignment\+: Homework 5 ~\newline
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lander_8h_ab6f8c74d299fffd0364da0d38b9a8509}\label{lander_8h_ab6f8c74d299fffd0364da0d38b9a8509}} 
+\index{lander.\+h@{lander.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!lander.\+h@{lander.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \hyperlink{classlander}{lander} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+$<$$<$ operator 
+
+Description\+: $<$$<$ operator overload for the lander class that allows the user to print the state information in a readable way. 
+\begin{DoxyParams}{Parameters}
+{\em out} & is the ostream object passed to the function. \\
+\hline
+{\em rhs} & is the lander object to be output to the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the ostream object. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+The lander object is output to the user. 
+\end{DoxyPostcond}

@@ -1,0 +1,203 @@
+\hypertarget{nTrix_8h}{}\section{n\+Trix.\+h File Reference}
+\label{nTrix_8h}\index{n\+Trix.\+h@{n\+Trix.\+h}}
+{\ttfamily \#include \char`\"{}n\+Vect.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}n\+Trix.\+hpp\char`\"{}}\newline
+Include dependency graph for n\+Trix.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{nTrix_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnTrix}{n\+Trix$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classnTrix}{n\+Trix} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{nTrix_8h_a2bbb75cad63d3ba6e6f96960e09a58e2}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em $<$$<$ operator \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::istream \& \hyperlink{nTrix_8h_ad36b0a966daad207c03f790ace312827}{operator$>$$>$} (std\+::istream \&in, \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em \begin{quote}
+\begin{quote}
+operator\end{quote}
+\end{quote}
+\end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \hyperlink{nTrix_8h_aa6a9cd47a847b2f5567e13bd6c9c1fac}{operator$\ast$} (const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&lhs, const float scalar)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \hyperlink{nTrix_8h_abdb8062a93fea20839bdf926b1e16f94}{operator$\ast$} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&lhs, const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \hyperlink{nTrix_8h_acb6ffe9fd3e8aa373a570884247ac35b}{r\+\_\+invert} (const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&A, \hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \&B, \hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \&E, const \hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \&I, float Cerror, float Perror)
+\begin{DoxyCompactList}\small\item\em recursive invert \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions for the \hyperlink{classnTrix}{n\+Trix} class. ~\newline
+Programmer\+: Noah Klein ~\newline
+Class\+: C\+S5201 ~\newline
+Assignment\+: Homework 5 ~\newline
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{nTrix_8h_aa6a9cd47a847b2f5567e13bd6c9c1fac}\label{nTrix_8h_aa6a9cd47a847b2f5567e13bd6c9c1fac}} 
+\index{n\+Trix.\+h@{n\+Trix.\+h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Trix.\+h@{n\+Trix.\+h}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnTrix}{n\+Trix}$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&}]{lhs,  }\item[{const float}]{scalar }\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}
+
+Description\+: Scalar multiplication for a n\+Trix$<$\+T$>$ object. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is the n\+Trix$<$\+T$>$ object to be multiplied through. \\
+\hline
+{\em scalar} & is the scalar to multiply through the matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a new n\+Trix$<$\+T$>$ object with the scalar multiplied throughout. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$ operator must be defined for type T. 
+\end{DoxyPrecond}
+\mbox{\Hypertarget{nTrix_8h_abdb8062a93fea20839bdf926b1e16f94}\label{nTrix_8h_abdb8062a93fea20839bdf926b1e16f94}} 
+\index{n\+Trix.\+h@{n\+Trix.\+h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Trix.\+h@{n\+Trix.\+h}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnTrix}{n\+Trix}$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{lhs,  }\item[{const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}
+
+Description\+: $\ast$ operator overload for the \hyperlink{classnTrix}{n\+Trix} class that allows the user to multiply a matrix with a vector. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is a \hyperlink{classnVect}{n\+Vect} object to be multiplied to a \hyperlink{classnTrix}{n\+Trix}. \\
+\hline
+{\em rhs} & is a \hyperlink{classnTrix}{n\+Trix} object to be multiplied to a \hyperlink{classnVect}{n\+Vect}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a n\+Trix$<$\+T$>$ object with the proper dimensions and with the values having matrix multiplicaion applied. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$ operator must be defined for type T. 
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::invalid\+\_\+argument object if the two matrices are not the correct dimensions for matrix multiplication to occur. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{nTrix_8h_a2bbb75cad63d3ba6e6f96960e09a58e2}\label{nTrix_8h_a2bbb75cad63d3ba6e6f96960e09a58e2}} 
+\index{n\+Trix.\+h@{n\+Trix.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!n\+Trix.\+h@{n\+Trix.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+$<$$<$ operator 
+
+Description\+: $<$$<$ operator overloaded to pretty print the \hyperlink{classnTrix}{n\+Trix} object. 
+\begin{DoxyParams}{Parameters}
+{\em out} & is the ostream object passed to the function. \\
+\hline
+{\em rhs} & is the n\+Trix$<$\+T$>$ object to be output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the ostream. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$<$$<$ operator must be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the matrix to the user. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{nTrix_8h_ad36b0a966daad207c03f790ace312827}\label{nTrix_8h_ad36b0a966daad207c03f790ace312827}} 
+\index{n\+Trix.\+h@{n\+Trix.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!n\+Trix.\+h@{n\+Trix.\+h}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+\begin{quote}
+\begin{quote}
+operator\end{quote}
+\end{quote}
+
+
+Description\+: $>$$>$ operator overloaded to extract a matrix object from the istream. The inputted matrix overloads any previously stored data in the \hyperlink{classnTrix}{n\+Trix} object. 
+\begin{DoxyParams}{Parameters}
+{\em in} & is the istream object passed to the function. \\
+\hline
+{\em rhs} & is the n\+Trix$<$\+T$>$ object to store the input. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the istream. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$>$$>$ operator must be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Stores the input in the object passed. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::range\+\_\+error object if the user inputs an incorrect number of items for a column. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{nTrix_8h_acb6ffe9fd3e8aa373a570884247ac35b}\label{nTrix_8h_acb6ffe9fd3e8aa373a570884247ac35b}} 
+\index{n\+Trix.\+h@{n\+Trix.\+h}!r\+\_\+invert@{r\+\_\+invert}}
+\index{r\+\_\+invert@{r\+\_\+invert}!n\+Trix.\+h@{n\+Trix.\+h}}
+\subsubsection{\texorpdfstring{r\+\_\+invert()}{r\_invert()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnTrix}{n\+Trix}$<$float$>$ r\+\_\+invert (\begin{DoxyParamCaption}\item[{const \hyperlink{classnTrix}{n\+Trix}$<$ T $>$ \&}]{A,  }\item[{\hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \&}]{B,  }\item[{\hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \&}]{E,  }\item[{const \hyperlink{classnTrix}{n\+Trix}$<$ float $>$ \&}]{I,  }\item[{float}]{Cerror,  }\item[{float}]{Perror }\end{DoxyParamCaption})}
+
+
+
+recursive invert 
+
+Description\+: Recursive part of the invert function that iteratively calculates the inverse of a matrix. 
+\begin{DoxyParams}{Parameters}
+{\em A} & is the matrix that the user wants the inverse of. \\
+\hline
+{\em B} & is the previous version of one of the matrices needed in the iterative calculation. \\
+\hline
+{\em E} & is one of the matrices needed in the iterative calculation. \\
+\hline
+{\em I} & is the identity matrix in the proper dimension of the matrix A. \\
+\hline
+{\em Cerror} & is the current frobenius norm of matrix B. \\
+\hline
+{\em Perror} & is the previous frobenius norm of matrix B. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an inverted matrix A. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+=, -\/, and $\ast$ operators need to be defined for type T. 
+\end{DoxyPrecond}

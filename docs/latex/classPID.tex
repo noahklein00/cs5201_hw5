@@ -1,0 +1,198 @@
+\hypertarget{classPID}{}\section{P\+ID Class Reference}
+\label{classPID}\index{P\+ID@{P\+ID}}
+
+
+\hyperlink{classPID}{P\+ID} class.  
+
+
+
+
+{\ttfamily \#include $<$P\+I\+D.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPID_a8aba942356f95f82b69f9355411255a8}{P\+ID} (const float step, const float d\+\_\+value)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{classPID_a0311b6f7de348499ce24e53ba353514a}{P\+ID} ()
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{classPID_a41a7366e29da45f548e541952d13e553}{P\+ID} (const \hyperlink{classPID}{P\+ID} \&rhs)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classPID}{P\+ID} \& \hyperlink{classPID_ac29f152d7dd94fa8d6af144c070a553b}{operator=} (const \hyperlink{classPID}{P\+ID} \&rhs)
+\begin{DoxyCompactList}\small\item\em operator = \end{DoxyCompactList}\item 
+float \hyperlink{classPID_adb9d986a6d94b9e717c2b8f557cdd59c}{operator()} (const float curr\+\_\+value)
+\begin{DoxyCompactList}\small\item\em operator () \end{DoxyCompactList}\item 
+float \& \hyperlink{classPID_a1994e0891dc1054a4ba99be45bce68c0}{operator\mbox{[}$\,$\mbox{]}} (const int access)
+\begin{DoxyCompactList}\small\item\em operator \mbox{[}\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{classPID_a87b5447cef6364adc24f34f57fc1e976}{reset} (const float new\+\_\+d)
+\begin{DoxyCompactList}\small\item\em Target reset function. \end{DoxyCompactList}\item 
+void \hyperlink{classPID_ac22392c392dd8a95806fce3708eb3090}{set\+\_\+step} (const float new\+\_\+step)
+\begin{DoxyCompactList}\small\item\em step overload \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classPID}{P\+ID} class. 
+
+This class acts as a \hyperlink{classPID}{P\+ID} controller with an adjustable step size and target set point. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPID_a8aba942356f95f82b69f9355411255a8}\label{classPID_a8aba942356f95f82b69f9355411255a8}} 
+\index{P\+ID@{P\+ID}!P\+ID@{P\+ID}}
+\index{P\+ID@{P\+ID}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{P\+I\+D()}{PID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily P\+I\+D\+::\+P\+ID (\begin{DoxyParamCaption}\item[{const float}]{step,  }\item[{const float}]{d\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+constructor 
+
+Description\+: Constructor for the \hyperlink{classPID}{P\+ID} class that takes and initializes the step size, target value, the current and previous errors, and the signal to be sent out. 
+\begin{DoxyParams}{Parameters}
+{\em step} & is the step size to be used by the \hyperlink{classPID}{P\+ID} object. \\
+\hline
+{\em d\+\_\+value} & is the target value for the error to be calculated with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Initializes a \hyperlink{classPID}{P\+ID} object with the desired values. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error object if step $<$= 0. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classPID_a0311b6f7de348499ce24e53ba353514a}\label{classPID_a0311b6f7de348499ce24e53ba353514a}} 
+\index{P\+ID@{P\+ID}!P\+ID@{P\+ID}}
+\index{P\+ID@{P\+ID}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{P\+I\+D()}{PID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily P\+I\+D\+::\+P\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor 
+
+Description\+: Default constructor for the \hyperlink{classPID}{P\+ID} class that initializes the step size, target value, the current and previous errors, and the signal to be sent out. \begin{DoxyPostcond}{Postcondition}
+Initializes a \hyperlink{classPID}{P\+ID} object with the default values. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classPID_a41a7366e29da45f548e541952d13e553}\label{classPID_a41a7366e29da45f548e541952d13e553}} 
+\index{P\+ID@{P\+ID}!P\+ID@{P\+ID}}
+\index{P\+ID@{P\+ID}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{P\+I\+D()}{PID()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily P\+I\+D\+::\+P\+ID (\begin{DoxyParamCaption}\item[{const \hyperlink{classPID}{P\+ID} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+copy constructor 
+
+Description\+: Copy constructor for the \hyperlink{classPID}{P\+ID} class. Sets the calling object equal to the object passed. 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the \hyperlink{classPID}{P\+ID} to be copied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Initializes a \hyperlink{classPID}{P\+ID} object with the same values as the object passed. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPID_adb9d986a6d94b9e717c2b8f557cdd59c}\label{classPID_adb9d986a6d94b9e717c2b8f557cdd59c}} 
+\index{P\+ID@{P\+ID}!operator()@{operator()}}
+\index{operator()@{operator()}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily float P\+I\+D\+::operator() (\begin{DoxyParamCaption}\item[{const float}]{curr\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+operator () 
+
+Description\+: Calculates the signal to be sent out based on the current value that is passed to the object. 
+\begin{DoxyParams}{Parameters}
+{\em curr\+\_\+value} & is the current value of the system that the \hyperlink{classPID}{P\+ID} compares the target value against to calculate the error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the signal that is calculated. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPID_ac29f152d7dd94fa8d6af144c070a553b}\label{classPID_ac29f152d7dd94fa8d6af144c070a553b}} 
+\index{P\+ID@{P\+ID}!operator=@{operator=}}
+\index{operator=@{operator=}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{classPID}{P\+ID} \& P\+I\+D\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classPID}{P\+ID} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+operator = 
+
+Description\+: Copy assignment operator for the \hyperlink{classPID}{P\+ID} class. 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the object to set the calling object equal to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+sets the values of the calling object equal to the values of the parameter. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classPID_a1994e0891dc1054a4ba99be45bce68c0}\label{classPID_a1994e0891dc1054a4ba99be45bce68c0}} 
+\index{P\+ID@{P\+ID}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily float \& P\+I\+D\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{access }\end{DoxyParamCaption})}
+
+
+
+operator \mbox{[}\mbox{]} 
+
+Description\+: Allows the user to access the k-\/values and change them. 
+\begin{DoxyParams}{Parameters}
+{\em access} & is the space in the m\+\_\+kstore \hyperlink{classnVect}{n\+Vect} to be accessed. \mbox{[}0\mbox{]} for Kp, \mbox{[}1\mbox{]} for Ki, and \mbox{[}2\mbox{]} for Kd. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a reference to the spot in the array. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPID_a87b5447cef6364adc24f34f57fc1e976}\label{classPID_a87b5447cef6364adc24f34f57fc1e976}} 
+\index{P\+ID@{P\+ID}!reset@{reset}}
+\index{reset@{reset}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void P\+I\+D\+::reset (\begin{DoxyParamCaption}\item[{const float}]{new\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Target reset function. 
+
+Description\+: Sets a new target for the controller to output a signal to work towards. 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+d} & is the new target. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Sets the desired\+\_\+value equal to new\+\_\+d. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classPID_ac22392c392dd8a95806fce3708eb3090}\label{classPID_ac22392c392dd8a95806fce3708eb3090}} 
+\index{P\+ID@{P\+ID}!set\+\_\+step@{set\+\_\+step}}
+\index{set\+\_\+step@{set\+\_\+step}!P\+ID@{P\+ID}}
+\subsubsection{\texorpdfstring{set\+\_\+step()}{set\_step()}}
+{\footnotesize\ttfamily void P\+I\+D\+::set\+\_\+step (\begin{DoxyParamCaption}\item[{const float}]{new\+\_\+step }\end{DoxyParamCaption})}
+
+
+
+step overload 
+
+Description\+: Allows the step size to be overloaded with a new value. 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+step} & is the new step size to be stored in the \hyperlink{classPID}{P\+ID} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+The step size stored in the \hyperlink{classPID}{P\+ID} object is overwritten. 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Throws} & a std\+::domain\+\_\+error object if new\+\_\+step $<$= 0. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{PID_8h}{P\+I\+D.\+h}\item 
+P\+I\+D.\+cpp\end{DoxyCompactItemize}

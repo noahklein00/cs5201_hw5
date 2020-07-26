@@ -1,0 +1,142 @@
+\hypertarget{classkalman}{}\section{kalman$<$ T $>$ Class Template Reference}
+\label{classkalman}\index{kalman$<$ T $>$@{kalman$<$ T $>$}}
+
+
+kalman class.  
+
+
+
+
+{\ttfamily \#include $<$kalman.\+h$>$}
+
+
+
+Inheritance diagram for kalman$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classkalman__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for kalman$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{classkalman__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classkalman_a8181e5861db1cf47644d9b5a02644f8b}{kalman} (const data \&A, const data \&B, const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&i\+\_\+state, const data \&P, const data \&Q, const data \&R, const data \&I)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classnVect}{n\+Vect}$<$ float $>$ \hyperlink{classkalman_ad3ce18dcca9e21b8b2cbcf25915327ac}{operator()} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&measured, const float signal)
+\begin{DoxyCompactList}\small\item\em () operator \end{DoxyCompactList}\item 
+virtual \hyperlink{classnVect}{n\+Vect}$<$ float $>$ \hyperlink{classkalman_ae3c0c97ba8c3eb2eba0134a3adf701ed}{operator()} (\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&measured)
+\begin{DoxyCompactList}\small\item\em () operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class kalman$<$ T $>$}
+
+kalman class. 
+
+This class is a derived filter class that acts as a kalman filter to filter a noisy signal from a state given a linear model. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classkalman_a8181e5861db1cf47644d9b5a02644f8b}\label{classkalman_a8181e5861db1cf47644d9b5a02644f8b}} 
+\index{kalman@{kalman}!kalman@{kalman}}
+\index{kalman@{kalman}!kalman@{kalman}}
+\subsubsection{\texorpdfstring{kalman()}{kalman()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classkalman}{kalman}$<$ T $>$\+::\hyperlink{classkalman}{kalman} (\begin{DoxyParamCaption}\item[{const data \&}]{A,  }\item[{const data \&}]{B,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{i\+\_\+state,  }\item[{const data \&}]{P,  }\item[{const data \&}]{Q,  }\item[{const data \&}]{R,  }\item[{const data \&}]{I }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Description\+: Parameterized constructor for the kalman derived filter class that allows the user to specify all constants and initial member variables for the calculations. 
+\begin{DoxyParams}{Parameters}
+{\em A} & is the constant state transition matrix. \\
+\hline
+{\em B} & is the constant input transition matrix. \\
+\hline
+{\em i\+\_\+state} & is the initial state of the modeled system. \\
+\hline
+{\em P} & is the initial state of the covariance matrix. \\
+\hline
+{\em Q} & is the constant process error matrix. \\
+\hline
+{\em R} & is the constant measurement uncertainty matrix. \\
+\hline
+{\em I} & is the constant identity matrix in the correct dimensions of the system. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+A kalman filter is initialized with all the values it needs to operate. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classkalman_ad3ce18dcca9e21b8b2cbcf25915327ac}\label{classkalman_ad3ce18dcca9e21b8b2cbcf25915327ac}} 
+\index{kalman@{kalman}!operator()@{operator()}}
+\index{operator()@{operator()}!kalman@{kalman}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ float $>$ \hyperlink{classkalman}{kalman}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{measured,  }\item[{const float}]{signal }\end{DoxyParamCaption})}
+
+
+
+() operator 
+
+Description\+: () operator overload for the kalman derived filer that steps the simulation forward by one time step and calculates the neccessary updates for different variables. 
+\begin{DoxyParams}{Parameters}
+{\em measured} & is the current measured state of the system. \\
+\hline
+{\em signal} & is the current \hyperlink{classPID}{P\+ID} signal that was sent to the lander model. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a \hyperlink{classnVect}{n\+Vect$<$float$>$} that represents the filtered system. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$, +, -\/, and = operators must be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The filtered state is returned and the kalman filter is updated by one time step. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classkalman_ae3c0c97ba8c3eb2eba0134a3adf701ed}\label{classkalman_ae3c0c97ba8c3eb2eba0134a3adf701ed}} 
+\index{kalman@{kalman}!operator()@{operator()}}
+\index{operator()@{operator()}!kalman@{kalman}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ float $>$ \hyperlink{classkalman}{kalman}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{measured }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+() operator 
+
+Description\+: () operator overload that matches the virtual function defined in the filter class. This does not do anything. 
+\begin{DoxyParams}{Parameters}
+{\em measured} & is the current state of the system. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a \hyperlink{classnVect}{n\+Vect$<$float$>$} that is the same as the input. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Does nothing. 
+\end{DoxyPostcond}
+
+
+Implements \hyperlink{classfilter_ac8ec0fb4a10d10ee5e3133259610e0d2}{filter$<$ T $>$}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{kalman_8h}{kalman.\+h}\item 
+kalman.\+hpp\end{DoxyCompactItemize}

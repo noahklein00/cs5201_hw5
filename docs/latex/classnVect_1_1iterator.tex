@@ -1,0 +1,252 @@
+\hypertarget{classnVect_1_1iterator}{}\section{n\+Vect$<$ T $>$\+:\+:iterator Class Reference}
+\label{classnVect_1_1iterator}\index{n\+Vect$<$ T $>$\+::iterator@{n\+Vect$<$ T $>$\+::iterator}}
+
+
+iterator class.  
+
+
+
+
+{\ttfamily \#include $<$n\+Vect.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnVect_1_1iterator_a8e19f7baeffbc2b8320f4b530be16d86}{iterator} (\hyperlink{classnVect}{n\+Vect}$<$ T $>$ $\ast$a, unsigned int idx)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+T \& \hyperlink{classnVect_1_1iterator_a03ab1ec9dbcf379a4c0723536d763306}{operator$\ast$} ()
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+T \& \hyperlink{classnVect_1_1iterator_a58333e36f3e8bc4519b41667dbf4a710}{operator-\/$>$} ()
+\begin{DoxyCompactList}\small\item\em -\/$>$ operator \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \& \hyperlink{classnVect_1_1iterator_a92ca21ca2cc2d12095cafccf7c0d1e8f}{operator++} ()
+\begin{DoxyCompactList}\small\item\em operator ++ (postfix) \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect_1_1iterator_aa77cebd3d9132f8490609d9522be8b26}{operator++} (int)
+\begin{DoxyCompactList}\small\item\em operator ++ (prefix) \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \& \hyperlink{classnVect_1_1iterator_abece3b68bb91a0397f58bbdac7996724}{operator+=} (const unsigned int inc)
+\begin{DoxyCompactList}\small\item\em += operator \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \& \hyperlink{classnVect_1_1iterator_a65e426d74204084e00d8d6770b88b790}{operator-\/-\/} ()
+\begin{DoxyCompactList}\small\item\em operator -- (postfix) \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect_1_1iterator_aa99d3a05bc566f235dcc06c3b57e21d3}{operator-\/-\/} (int)
+\begin{DoxyCompactList}\small\item\em operator -- (prefix) \end{DoxyCompactList}\item 
+\hyperlink{classnVect_1_1iterator}{iterator} \& \hyperlink{classnVect_1_1iterator_a1dc00f521ea60257023cd95a1e9238dd}{operator-\/=} (const unsigned int dec)
+\begin{DoxyCompactList}\small\item\em -\/= operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classnVect_1_1iterator_a81d10d7799462c7ca5e7cf19119ca356}{operator==} (const \hyperlink{classnVect_1_1iterator}{iterator} \&a, const \hyperlink{classnVect_1_1iterator}{iterator} \&b)
+\begin{DoxyCompactList}\small\item\em == operator \end{DoxyCompactList}\item 
+bool \hyperlink{classnVect_1_1iterator_a55a8ee0e80dad1a7da9d751c25bc0386}{operator!=} (const \hyperlink{classnVect_1_1iterator}{iterator} \&a, const \hyperlink{classnVect_1_1iterator}{iterator} \&b)
+\begin{DoxyCompactList}\small\item\em != operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class n\+Vect$<$ T $>$\+::iterator}
+
+iterator class. 
+
+This class allows for iterating over the \hyperlink{classnVect}{n\+Vect} object containers. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnVect_1_1iterator_a8e19f7baeffbc2b8320f4b530be16d86}\label{classnVect_1_1iterator_a8e19f7baeffbc2b8320f4b530be16d86}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{iterator()}{iterator()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::iterator (\begin{DoxyParamCaption}\item[{\hyperlink{classnVect}{n\+Vect}$<$ T $>$ $\ast$}]{a,  }\item[{unsigned int}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor 
+
+Description\+: Constructs an iterator over a certain \hyperlink{classnVect}{n\+Vect} object starting at a specified integer. 
+\begin{DoxyParams}{Parameters}
+{\em a} & is the pointer to a \hyperlink{classnVect}{n\+Vect} to be copied. \\
+\hline
+{\em idx} & is the index position of the pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new iterator object with the specified data. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classnVect_1_1iterator_a03ab1ec9dbcf379a4c0723536d763306}\label{classnVect_1_1iterator_a03ab1ec9dbcf379a4c0723536d763306}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T\& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}
+
+Description\+: Accesses the data at the position the pointer is pointing to. \begin{DoxyReturn}{Returns}
+Returns a reference to the data in the object pointed to by m\+\_\+array at the index m\+\_\+idx. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_a92ca21ca2cc2d12095cafccf7c0d1e8f}\label{classnVect_1_1iterator_a92ca21ca2cc2d12095cafccf7c0d1e8f}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator}\& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator ++ (postfix) 
+
+Description\+: Increments the index in stored in the iterator. \begin{DoxyReturn}{Returns}
+Returns the calling object with an incremented iterator. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_aa77cebd3d9132f8490609d9522be8b26}\label{classnVect_1_1iterator_aa77cebd3d9132f8490609d9522be8b26}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator ++ (prefix) 
+
+Description\+: Increments the index in stored in the iterator. \begin{DoxyReturn}{Returns}
+Returns a new iterator object with an incremented iterator. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_abece3b68bb91a0397f58bbdac7996724}\label{classnVect_1_1iterator_abece3b68bb91a0397f58bbdac7996724}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator}\& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator+= (\begin{DoxyParamCaption}\item[{const unsigned int}]{inc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
++= operator 
+
+Description\+: Allows for jumping the iterator\textquotesingle{}s index by a specified amount. 
+\begin{DoxyParams}{Parameters}
+{\em inc} & only allows for forward iterating. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the calling object with an adjusted iterator. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_a65e426d74204084e00d8d6770b88b790}\label{classnVect_1_1iterator_a65e426d74204084e00d8d6770b88b790}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator}\& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator -- (postfix) 
+
+Description\+: Decrements the index stored in the iterator. \begin{DoxyReturn}{Returns}
+Returns the calling object with a decremented index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_aa99d3a05bc566f235dcc06c3b57e21d3}\label{classnVect_1_1iterator_aa99d3a05bc566f235dcc06c3b57e21d3}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator} \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator -- (prefix) 
+
+Description\+: Decrements the index stored in the iterator. \begin{DoxyReturn}{Returns}
+Returns a new iterator object with a decremented iterator. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_a1dc00f521ea60257023cd95a1e9238dd}\label{classnVect_1_1iterator_a1dc00f521ea60257023cd95a1e9238dd}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+\hyperlink{classnVect_1_1iterator}{iterator}\& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator-\/= (\begin{DoxyParamCaption}\item[{const unsigned int}]{dec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+-\/= operator 
+
+Description\+: Allows for jumping the iterator\textquotesingle{}s index by a specified amount. 
+\begin{DoxyParams}{Parameters}
+{\em dec} & only allows for reverse iterating. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the calling object with an adjusted index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_a58333e36f3e8bc4519b41667dbf4a710}\label{classnVect_1_1iterator_a58333e36f3e8bc4519b41667dbf4a710}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+T\& \hyperlink{classnVect}{n\+Vect}$<$ T $>$\+::iterator\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+-\/$>$ operator 
+
+Description\+: Allows the user to use -\/$>$ syntax instead of the $\ast$ operator. \begin{DoxyReturn}{Returns}
+Returns a reference to the data in the object pointed to by m\+\_\+array at the index m\+\_\+idx. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classnVect_1_1iterator_a55a8ee0e80dad1a7da9d751c25bc0386}\label{classnVect_1_1iterator_a55a8ee0e80dad1a7da9d751c25bc0386}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect_1_1iterator}{iterator} \&}]{a,  }\item[{const \hyperlink{classnVect_1_1iterator}{iterator} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+!= operator 
+
+Description\+: Allows for logical comparison between two iterator objects. 
+\begin{DoxyParams}{Parameters}
+{\em a} & is an iterator \\
+\hline
+{\em b} & is an iterator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a bool that reflects the equality of the two iterators. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnVect_1_1iterator_a81d10d7799462c7ca5e7cf19119ca356}\label{classnVect_1_1iterator_a81d10d7799462c7ca5e7cf19119ca356}} 
+\index{n\+Vect\+::iterator@{n\+Vect\+::iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!n\+Vect\+::iterator@{n\+Vect\+::iterator}}
+\subsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect_1_1iterator}{iterator} \&}]{a,  }\item[{const \hyperlink{classnVect_1_1iterator}{iterator} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+== operator 
+
+Description\+: Allows for logical comparison between two iterator objects. 
+\begin{DoxyParams}{Parameters}
+{\em a} & is an iterator \\
+\hline
+{\em b} & is an iterator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a bool that reflects the equality of the two iterators. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nVect_8h}{n\+Vect.\+h}\end{DoxyCompactItemize}

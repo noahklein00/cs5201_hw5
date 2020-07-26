@@ -1,0 +1,197 @@
+\hypertarget{nVect_8h}{}\section{n\+Vect.\+h File Reference}
+\label{nVect_8h}\index{n\+Vect.\+h@{n\+Vect.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}n\+Vect.\+hpp\char`\"{}}\newline
+Include dependency graph for n\+Vect.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{nVect_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{nVect_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnVect}{n\+Vect$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classnVect}{n\+Vect} class. \end{DoxyCompactList}\item 
+class \hyperlink{classnVect_1_1iterator}{n\+Vect$<$ T $>$\+::iterator}
+\begin{DoxyCompactList}\small\item\em iterator class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{nVect_8h_aaea4ae2e2f0c095902f38c22928c9d31}{operator+} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&lhs, const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{nVect_8h_a8b1ac989f8040b056775eaeb81c506d2}{operator$\ast$} (const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&lhs, const T \&rhs)
+\begin{DoxyCompactList}\small\item\em Scalar multiplication. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \hyperlink{nVect_8h_ab14d927799a17a9ecdaec6471fe51079}{operator$\ast$} (const T \&lhs, const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Scalar multiplication. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \hyperlink{nVect_8h_ac41f0d1072a4da1e6b7e1c0139d7edaa}{operator$<$$<$} (std\+::ostream \&out, const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em $<$$<$ operator \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::istream \& \hyperlink{nVect_8h_a633c2e020b48c20b53f449795b64317d}{operator$>$$>$} (std\+::istream \&in, \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em \begin{quote}
+\begin{quote}
+operator\end{quote}
+\end{quote}
+\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions for the \hyperlink{classnVect}{n\+Vect} class. ~\newline
+Programmer\+: Noah Klein ~\newline
+Class\+: C\+S5201 ~\newline
+Assignment\+: Homework 5 ~\newline
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{nVect_8h_a8b1ac989f8040b056775eaeb81c506d2}\label{nVect_8h_a8b1ac989f8040b056775eaeb81c506d2}} 
+\index{n\+Vect.\+h@{n\+Vect.\+h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Vect.\+h@{n\+Vect.\+h}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{lhs,  }\item[{const T \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Scalar multiplication. 
+
+Description\+: Allows for scalar multiplication of a calling vector. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is the \hyperlink{classnVect}{n\+Vect} that the scalar will be multiplied through. \\
+\hline
+{\em rhs} & is a scalar of type T to be multiplied through the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where the data in each container has been multiplied by the scalar. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{nVect_8h_ab14d927799a17a9ecdaec6471fe51079}\label{nVect_8h_ab14d927799a17a9ecdaec6471fe51079}} 
+\index{n\+Vect.\+h@{n\+Vect.\+h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!n\+Vect.\+h@{n\+Vect.\+h}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$T$>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const T \&}]{lhs,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Scalar multiplication. 
+
+Description\+: Allows for scalar multiplication of a calling vector. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is a \hyperlink{classnVect}{n\+Vect} that the scalar will be muliplied through. \\
+\hline
+{\em rhs} & is a scalar of type T to be multiplied through the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where the data in each container has been multiplied by the scalar. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$\ast$= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{nVect_8h_aaea4ae2e2f0c095902f38c22928c9d31}\label{nVect_8h_aaea4ae2e2f0c095902f38c22928c9d31}} 
+\index{n\+Vect.\+h@{n\+Vect.\+h}!operator+@{operator+}}
+\index{operator+@{operator+}!n\+Vect.\+h@{n\+Vect.\+h}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classnVect}{n\+Vect}$<$T$>$ operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{lhs,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item operator 
+\end{DoxyItemize}
+
+Description\+: Used to add two vectors together. Allows for vectors of different (or similar) sizes to be added through vector addition. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & is the \hyperlink{classnVect}{n\+Vect} to be added to. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} to be added to the calling object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a newly created vector where each container now holds the sum of the two vectors passed at that index. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
++= operator needs to be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a new vector that gets returned. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{nVect_8h_ac41f0d1072a4da1e6b7e1c0139d7edaa}\label{nVect_8h_ac41f0d1072a4da1e6b7e1c0139d7edaa}} 
+\index{n\+Vect.\+h@{n\+Vect.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!n\+Vect.\+h@{n\+Vect.\+h}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+$<$$<$ operator 
+
+Description\+: Allows for proper outputting of \hyperlink{classnVect}{n\+Vect} objects. 
+\begin{DoxyParams}{Parameters}
+{\em out} & is the ostream passed. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} to be output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the ostream 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+$<$$<$ operator must be defined for type T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Outputs the object to the stream. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{nVect_8h_a633c2e020b48c20b53f449795b64317d}\label{nVect_8h_a633c2e020b48c20b53f449795b64317d}} 
+\index{n\+Vect.\+h@{n\+Vect.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!n\+Vect.\+h@{n\+Vect.\+h}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\hyperlink{classnVect}{n\+Vect}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+\begin{quote}
+\begin{quote}
+operator\end{quote}
+\end{quote}
+
+
+Description\+: Allows the user to insert any amount of data into a \hyperlink{classnVect}{n\+Vect} object. 
+\begin{DoxyParams}{Parameters}
+{\em in} & is the istream passed. \\
+\hline
+{\em rhs} & is the \hyperlink{classnVect}{n\+Vect} to store input. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the istream. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Inputted data is stored in the rhs \hyperlink{classnVect}{n\+Vect}. 
+\end{DoxyPostcond}
